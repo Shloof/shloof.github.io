@@ -1,0 +1,484 @@
+/* Import fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap");
+
+/* Color variables */
+
+:root {
+    --color-background: rgb(4, 32, 38);
+    --color-background-dark: rgb(9, 9, 7);
+    --color-background-bright: rgb(9, 55, 65);
+    --color-text: rgb(233, 237, 244);
+    --color-link: rgb(168, 219, 171);
+    --color-tag-fill: rgb(32, 32, 32);
+    --color-label: rgb(142, 146, 152);
+    --color-label-info-text: rgb(182, 218, 214);
+    --color-checklist-green: rgb(156, 208, 202);
+    --color-checklist-red: rgb(227, 104, 104);
+    --color-logo-purple: rgb(175, 70, 224);
+    --color-gradient: linear-gradient(to right,
+            rgb(203, 145, 219),
+            rgb(181, 107, 253),
+            rgb(133, 206, 160),
+            rgb(180, 249, 200));
+}
+
+/* Global styles */
+
+* {
+    margin: 0px;
+}
+
+ol {
+    padding-left: 20px;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-background-dark);
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.2em;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.2em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+@keyframes neon-blink {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.6;
+    }
+}
+
+.animate-neon-blink {
+    animation: 4s linear 0s infinite normal none running neon-blink;
+}
+
+.scroll-up {
+    position: fixed;
+    top: 85%;
+    right: 0;
+    width: 16vw;
+    border-radius: 20rem 0 0 20rem;
+    border: 0;
+    background-color: var(--color-background-dark);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* This class moves the button left and hides it */
+.scroll-up.hidden {
+    transform: translateX(100%);
+    /* Slides it off-screen to the right */
+    opacity: 0;
+    pointer-events: none;
+    /* Prevents clicking when hidden */
+}
+
+/* Section styles */
+
+.section-alt-color:nth-of-type(odd) {
+    background-color: var(--color-background-bright);
+}
+
+.section-alt-color:nth-of-type(even) {
+    background-color: var(--color-background);
+}
+
+.section-color {
+    background-color: var(--color-background);
+}
+
+.section-dark {
+    background-color: var(--color-background-dark);
+}
+
+.section-padding-intro {
+    padding: 8vh 6vw;
+}
+
+.section-padding {
+    padding: 8vh 6vw;
+}
+
+/* Spacer styles */
+
+.vspace-xsmall {
+    height: 0.5rem;
+}
+
+.vspace-small {
+    height: 1.5rem;
+}
+
+.vspace-medium {
+    height: 3rem;
+}
+
+.vspace-large {
+    height: 5rem;
+}
+
+.hspace-xsmall {
+    width: 0.5rem;
+}
+
+.hspace-small {
+    width: 1rem;
+}
+
+.hspace-medium {
+    width: 2rem;
+}
+
+.hspace-large {
+    width: 4rem;
+}
+
+
+/* Component styles */
+
+.rounded-image {
+    border-radius: 1rem;
+}
+
+.pair-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.icon-copy {
+    background-color: var(--color-background-bright);
+    border: 1px solid var(--color-label);
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+}
+
+.improvement-image {
+    width: 100%;
+}
+
+.improvement- .improvement .intro-sign-text {
+    background: var(--color-gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro-item {
+    width: 50%;
+    margin: 1.5rem 0;
+}
+
+.menu-line {
+    border: none;
+    height: 3px;
+    width: 100%;
+    background: var(--color-gradient);
+    display: block;
+}
+
+.tag_group {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.tag_item {
+    color: var(--color-label);
+    background-color: var(--color-tag-fill);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-label);
+    border-radius: 2rem;
+    margin: 4px;
+}
+
+.project_card {
+    background-color: var(--color-background-dark);
+    border: 1px solid var(--color-label);
+    border-radius: 1rem;
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page_box {
+    border: 1px solid var(--color-label);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.page_box h3 {
+    padding: 0 10px;
+}
+
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+}
+
+/* Text styles */
+
+.p {
+    font-size: 1.3rem;
+    line-height: 1.4em;
+    font-weight: 200;
+}
+
+.p.bold,
+.p.label.bold {
+    font-weight: 600;
+}
+
+.p.label {
+    color: var(--color-label);
+    font-weight: 400;
+}
+
+.p.link {
+    color: var(--color-link);
+}
+
+
+/* Utility styles */
+
+.full-width {
+    width: 100% !important;
+}
+
+.hide-on-mobile {
+    display: none;
+}
+
+
+.responsive {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.responsive-rows {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.responsive.spacer {
+    height: 1.5vh;
+    width: 1.5vh;
+}
+
+.collapse-content {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 1s ease;
+}
+
+.collapsed .collapse-content {
+    grid-template-rows: 0fr;
+}
+
+.collapse-content-inner {
+    overflow: hidden;
+}
+
+/* Gallery */
+
+.thumbnail {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+    transform: scale(1);
+}
+
+.fullscreen-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.fullscreen-overlay.active {
+    display: flex;
+}
+
+.fullscreen-overlay img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+}
+
+/* Competitive Analysis styles */
+
+.ca-entry {
+    border: 1px solid var(--color-label);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.ca-checklist {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.ca-checklist-item {
+    background-color: var(--color-tag-fill);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-label);
+    margin: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ca-check-yes {
+    color: var(--color-checklist-green);
+}
+
+.ca-check-no {
+    color: var(--color-checklist-red);
+}
+
+/* Persona styles */
+.persona-title {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 10rem;
+    padding: 0 3rem;
+    background-color: var(--color-background);
+}
+
+.persona-section {
+    margin-top: 40px;
+}
+
+.persona-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.persona-list li {
+    font-size: 3em;
+    line-height: 1.4em;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.persona-collapse-indicator {
+    display: block;
+}
+
+.collapsed .persona-collapse-indicator {
+    display: none;
+}
+
+.persona-expand-indicator {
+    display: none;
+}
+
+.collapsed .persona-expand-indicator {
+    display: block;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.flex-center-row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+/* Header Styles */
+
+.header-title {
+    padding: 1.5rem;
+}
+
+.header-collapse-indicator {
+    display: block;
+}
+
+.collapsed .header-collapse-indicator {
+    display: none;
+}
+
+.header-expand-indicator {
+    display: none;
+}
+
+.collapsed .header-expand-indicator {
+    display: block;
+}
+
+
+.header-link-highlight {
+    color: var(--color-link) !important;
+}

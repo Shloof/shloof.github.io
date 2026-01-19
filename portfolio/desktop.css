@@ -1,0 +1,167 @@
+@media (min-width: 1440px) {
+    /* Global styles */
+
+    h1 {
+        font-size: 4vw;
+        line-height: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.5vw;
+    }
+
+    h3 {
+        font-size: 1.5vw;
+    }
+
+    .scroll-up {
+        position: fixed;
+        top: 70%;
+        right: 0;
+        width: 6vw;
+        border-radius: 20rem 0 0 20rem;
+        border: 0;
+        background-color: var(--color-background-dark);
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        z-index: 999;
+    }
+
+    /* Section styles */
+
+    .section-padding-intro {
+        padding: 4vh 16vw;
+    }
+
+    .section-padding {
+        padding: 8vh 16vw;
+    }
+
+
+    /* Spacer styles */
+
+    .vspace-xsmall {
+        height: 1rem;
+    }
+
+    .vspace-small {
+        height: 2rem;
+    }
+
+    .vspace-medium {
+        height: 4rem;
+    }
+
+    .vspace-large {
+        height: 6rem;
+    }
+
+    .hspace-small {
+        width: 1rem;
+    }
+
+
+    .desktop-5pct {
+        width: 5%;
+    }
+
+    .desktop-10pct {
+        width: 10%;
+    }
+
+    .desktop-15pct {
+        width: 15%;
+    }
+
+    .desktop-25pct {
+        width: 25%;
+    }
+
+    .desktop-30pct {
+        width: 30%;
+    }
+
+    .desktop-45pct {
+        width: 45%;
+    }
+
+    .desktop-50pct {
+        width: 50%;
+    }
+
+    .full-width.desktop-45pct {
+        width: 45% !important;
+    }
+
+    .desktop-text-padding {
+        padding-right: 30%;
+    }
+
+    /* Component styles */
+    .intro-item {
+        width: 28%;
+    }
+
+    .improvement-image {
+        width: 70%;
+    }
+
+    /* Text styles */
+
+    /* Utility styles */
+    .hide-on-mobile {
+        display: block;
+    }
+
+    .hide-on-desktop {
+        display: none;
+    }
+
+    .responsive {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .responsive.spacer {
+        height: 4rem;
+        width: 4rem;
+    }
+
+
+    div.alt-row:nth-of-type(even) {
+        flex-direction: row;
+    }
+
+    div.alt-row:nth-of-type(odd) {
+        flex-direction: row-reverse;
+    }
+
+    .collapsed .header-expand-indicator {
+        display: none;
+    }
+
+    /* Gallery */
+
+    .thumbnail {
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .thumbnail:hover {
+        transform: scale(1.02);
+    }
+
+    /* Competitive Analysis styles */
+
+    /* Persona styles */
+
+    /* Header styles */
+
+    .header-title {
+        padding: 1rem 0;
+    }
+
+    .desktop-header-padding {
+        padding-left: 16vw;
+        padding-right: 16vw;
+    }
+}

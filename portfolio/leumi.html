@@ -1,0 +1,556 @@
+<!doctype html>
+<html>
+<head>
+    <title>RacheliT - Bank Leumi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="desktop.css">
+</head>
+<body>
+    <div class="section-dark collapsed responsive desktop-header-padding" style="justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 12px; justify-content: space-between;" class="header-title">
+            <a class="p bold" href="index.html">
+                Racheli <span style="color: var(--color-logo-purple);"> | </span> T
+            </a>
+            <img class="header-collapse-indicator hide-on-desktop" style="width: 2rem; height: 2rem;" src="assets/icon_close_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+            <img class="header-expand-indicator" style="width: 2rem; height: 2rem;" src="assets/icon_open_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+        </div>
+        <div class="hide-on-mobile" style="padding: 1rem;">
+            <div class="flex-center-row">
+                <a id="link_paz_dt" class="p label" href="paz.html">Paz Charge</a>
+                <div class="hspace-large"></div>
+                <a id="link_google_dt" class="p label" href="google.html">Google Calendar</a>
+                <div class="hspace-large"></div>
+                <a id="link_leumi_dt" class="p label" href="leumi.html">Leumi</a>
+                <div class="hspace-large"></div>
+                <a id="link_mix_dt" class="p label" href="mix.html">Mix & Drinx</a>
+                <div class="hspace-large"></div>
+                <a id="link_about_dt" class="p label" href="about.html">About Me</a>
+            </div>
+        </div>
+        <div class="collapse-content hide-on-desktop">
+            <div class="collapse-content-inner" style="padding-left: 2rem;">
+                <a id="link_paz_mb" class="p label" href="paz.html">Paz Charge</a>
+                <div class="vspace-small"></div>
+                <a id="link_google_mb" class="p label" href="google.html">Google Calendar</a>
+                <div class="vspace-small"></div>
+                <a id="link_leumi_mb" class="p label" href="leumi.html">Leumi</a>
+                <div class="vspace-small"></div>
+                <a id="link_mix_mb" class="p label" href="mix.html">Mix & Drinx</a>
+                <div class="vspace-small"></div>
+                <a id="link_about_mb" class="p label" href="about.html">About Me</a>
+                <div class="vspace-small"></div>
+            </div>
+        </div>
+    </div>
+    <hr class="menu-line"></hr>
+    <button class="scroll-up hidden" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <img src="assets/icon_up.png" class="full-width animate-neon-blink">
+        <script>
+            window.onscroll = function () {
+                const btn = document.querySelector('.scroll-up');
+                if (window.scrollY > 300) {
+                    btn.classList.remove('hidden');
+                } else {
+                    btn.classList.add('hidden');
+                }
+            };
+        </script>
+    </button>
+    <div class="fullscreen-overlay" onclick="closeFullscreen()">
+        <img id="fullscreen-img" src=""></img>
+    </div>
+    <script>
+        function openFullscreen(img) {
+            document.getElementById('fullscreen-img').src = img.src;
+            document.querySelector('.fullscreen-overlay').classList.add('active');
+        }
+        function closeFullscreen() {
+            document.querySelector('.fullscreen-overlay').classList.remove('active');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeFullscreen();
+        });
+    </script>
+    <script>
+        const link_paz_dt = document.getElementById("link_paz_dt")
+        link_paz_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
+        const link_google_dt = document.getElementById("link_google_dt")
+        link_google_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
+        const link_leumi_dt = document.getElementById("link_leumi_dt")
+        link_leumi_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_mix_dt = document.getElementById("link_mix_dt")
+        link_mix_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
+        const link_about_dt = document.getElementById("link_about_dt")
+        link_about_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("about.html"))
+        const link_paz_mb = document.getElementById("link_paz_mb")
+        link_paz_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
+        const link_google_mb = document.getElementById("link_google_mb")
+        link_google_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
+        const link_leumi_mb = document.getElementById("link_leumi_mb")
+        link_leumi_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_mix_mb = document.getElementById("link_mix_mb")
+        link_mix_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
+        const link_about_mb = document.getElementById("link_about_mb")
+        link_about_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("about.html"))
+    </script>
+    <div class="section-padding section-dark responsive" style="align-items: center;">
+        <div class="desktop-45pct">
+            <div class="p label bold">Campaign Minisite</div>
+            <h1>Leumi - Branch Manager</h1>
+            <div class="vspace-xsmall"></div>
+            <div class="p">As part of Bank Leumi&#39;s campaign to enhance customer interactions, I designed a minisite for locating branches and contacting managers via WhatsApp.</div>
+            <div class="vspace-medium"></div>
+        </div>
+        <div class="desktop-5pct"></div>
+        <div class="desktop-50pct">
+            <img src="assets/img_leumi_intro.png" class="hide-on-desktop full-width" style="border-radius: 1rem;" />
+            <img src="assets/img_leumi_intro_desk.png" class="hide-on-mobile full-width" style="border-radius: 1rem;" />
+        </div>
+        <div>
+            <div class="vspace-small"></div>
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                <div class="intro-item">
+                    <div class="p label bold">
+                        Role
+                    </div>
+                    <div class="p">UX/UI &amp; Prototype</div>
+                </div>
+                <div class="intro-item">
+                    <div class="p label bold">
+                        Workplace
+                    </div>
+                    <div class="p">McCann</div>
+                </div>
+                <div class="intro-item">
+                    <div class="p label bold">
+                        Tools
+                    </div>
+                    <div class="p">Figma &amp; Photoshop</div>
+                </div>
+            </div>
+            <div class="vspace-small"></div>
+            <h2>Goal</h2>
+            <div class="vspace-xsmall"></div>
+            <div class="p desktop-text-padding">Achieve broad coverage and raise brand awareness within the target audience, ranging from ages 18 to 65, ensuring effective reach and engagement across diverse demographic segments.</div>
+        </div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>The Challenges</h2>
+        <div class="vspace-xsmall"></div>
+        <div class="p desktop-text-padding">Overcoming the impersonal image often associated with banks by creating a truly client-focused campaign that combines digital convenience with a human touch.</div>
+        <div class="vspace-medium"></div>
+        <div class="responsive">
+            <div class="desktop-30pct">
+                <div style="display: flex; flex-direction: row; align-items: baseline;">
+                    <div style="font-size: 4em; font-family: poppins;">
+                        70
+                    </div>
+                    <div class="p">%</div>
+                </div>
+                <div class="p">of customers conducted their banking activities through digital channels.</div>
+            </div>
+            <div class="vspace-medium desktop-5pct"></div>
+            <div class="desktop-30pct">
+                <div style="display: flex; flex-direction: row; align-items: baseline;">
+                    <div style="font-size: 4em; font-family: poppins;">
+                        59
+                    </div>
+                    <div class="p">%</div>
+                </div>
+                <div class="p">of customers felt they were treated fairly by their bank.</div>
+            </div>
+        </div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>User Flow</h2>
+        <div class="vspace-small"></div>
+        <div>
+            <img class="full-width hide-on-desktop" src="assets/leumi_user_flow_mob.svg"></img>
+            <img class="full-width hide-on-mobile" src="assets/leumi_user_flow_desk.svg"></img>
+        </div>
+        <div class="vspace-xsmall"></div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>Personas</h2>
+        <div class="vspace-small"></div>
+        <div class="responsive">
+            <div class="desktop-45pct">
+                <div class="persona-title">
+                    <h3>Leumi</h3>
+                    <img src="assets/paz_totem.png" style="width: 40%;" />
+                </div>
+                <div class="vspace-small"></div>
+    <div class="tag_group">
+        <div class="tag_item">Trusted</div>
+        <div class="tag_item">Innovative</div>
+        <div class="tag_item">Responsible</div>
+        <div class="tag_item">Client-Centered</div>
+        <div class="tag_item">Personal</div>
+    </div>
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="assets/icon_goal.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Goal</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px;">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>Build trust and personalize relationships through digital services.</li>
+                                <li>Enhancing loyalty in a competitive market.</li>
+                                <li>Raising brand awareness</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width: 100%" />
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="collapsed">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="assets/icon_motiv.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Motivations</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>Differentiating themselves from other banks and successfully attracting customers from competitors.</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width: 100%" />
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="collapsed">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="assets/icon_pain.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Pain Points</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>Maintaining a solid reputation is challenging, especially in a highly competitive market.</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                    <hr style="width: 100%" />
+                </div>
+                <script>
+                    document.body.addEventListener('click', function (e) {
+                        const toggle = e.target.closest('[onclick]');
+                        if (!toggle) return;
+                        e.stopPropagation();
+                        const wasCollapsed = toggle.classList.contains('collapsed');
+                        const card = toggle.closest('.desktop-45pct');
+                        card.querySelectorAll('[onclick]').forEach(el => {
+                            el.classList.add('collapsed');
+                        });
+                        if (wasCollapsed) {
+                            toggle.classList.remove('collapsed');
+                        }
+                    });
+                </script>
+            </div>
+            <div class="vspace-large desktop-5pct"></div>
+            <div class="desktop-45pct">
+                <div class="persona-title">
+                    <h3>Ronit Ben-David</h3>
+                    <img src="assets/leumi_ronit_persona.png" style="width: 40%;" />
+                </div>
+                <div class="vspace-small"></div>
+    <div class="tag_group">
+        <div class="tag_item">Self-employed therapist</div>
+        <div class="tag_item">44 years old</div>
+        <div class="tag_item">Married &#43; 3</div>
+        <div class="tag_item">Lives in Petach Tikva</div>
+    </div>
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="assets/icon_goal.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Goal</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px;">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>Easy access to finances and smooth transactions.</li>
+                                <li>Responsive, accessible guidance for decisions.</li>
+                                <li>Personalized banking options.</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width: 100%" />
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="collapsed">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="assets/icon_motiv.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Motivations</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>Spending less time on banking.</li>
+                                <li>Security and expert, responsive support.</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width: 100%" />
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="collapsed">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="assets/icon_pain.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Pain Points</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>Complex banking tasks often feel time-consuming and overwhelming.</li>
+                                <li>Long customer service wait times cause frustration and interruptions.</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                    <hr style="width: 100%" />
+                </div>
+                <script>
+                    document.body.addEventListener('click', function (e) {
+                        const toggle = e.target.closest('[onclick]');
+                        if (!toggle) return;
+                        e.stopPropagation();
+                        const wasCollapsed = toggle.classList.contains('collapsed');
+                        const card = toggle.closest('.desktop-45pct');
+                        card.querySelectorAll('[onclick]').forEach(el => {
+                            el.classList.add('collapsed');
+                        });
+                        if (wasCollapsed) {
+                            toggle.classList.remove('collapsed');
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>Design</h2>
+        <div class="vspace-small"></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_leumi_design_1.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Search city query</div>
+             <div class="p">The user clicks the search field, starts typing &#34;אשדוד,&#34; and selects it from the autocomplete suggestions that appear in the dropdown.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_leumi_design_2.gif" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Search city Results</div>
+             <div class="p">The system returns search results with a list of branch managers in אשדוד. The user selects a branch manager&#39;s card, which opens additional information.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_leumi_design_3.gif" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">WhatsApp redirection</div>
+             <div class="p">The user clicks the WhatsApp button to chat with the branch manager. It&#39;s available on both the closed and open card.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_leumi_design_4.gif" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Search Branch number query</div>
+             <div class="p">The user clicks on the search field and types their branch number. The system returns one result - the branch manager for the number entered.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_leumi_design_5.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Search error &amp; suggestions</div>
+             <div class="p">The user enters a misspelled query and gets no results, but input assistance offers helpful suggestions.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_leumi_design_6.gif" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Commitment statement</div>
+             <div class="p">The user scrolls down to the branch managers&#39; statement, begins reading, and clicks on &#34;להצהרה המלאה&#34; (Read the full statement). After finishing, he close the statement.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_leumi_design_7.gif" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Desktop</div>
+             <div class="p">I designed this project mobile-first, then optimized the desktop layout to use screen space efficiently by showing manager details alongside extra info without clutter.</div> 
+        </div>
+    </div>
+        <div class="vspace-xsmall"></div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>Conclusions</h2>
+        <div class="vspace-xsmall"></div>
+        <div class="p" style="white-space: pre-line;">This project faced tight timelines and delayed assets, limiting some features. Still, by prioritizing and collaborating closely, we delivered a cohesive product that met campaign goals. I focused on:</div>
+        <div class="vspace-medium"></div>
+        <ol class="p responsive"
+            style="display:flex; flex-wrap:wrap; gap:2rem; margin:0; padding: left 1.4em; list-style-position:outside;">
+            <li class="desktop-30pct">
+                <span style="white-space: pre-line;padding-left: 0.2  rem;"> Search Design: 
+intuitive and covers all scenarios.
+</span>
+            </li>
+            <li class="desktop-30pct">
+                <span style="white-space: pre-line;padding-left: 0.2  rem;"> Visibility: 
+manager Commitment full statements, for trust.
+</span>
+            </li>
+            <li class="desktop-30pct">
+                <span style="white-space: pre-line;padding-left: 0.2  rem;"> UI Modernization: 
+fresh look within Leumi&#39;s brand.
+</span>
+            </li>
+        </ol>
+        <div class="vspace-medium"></div>
+        <div class="p label bold">Results</div>
+        <div class="p" style="white-space: pre-line;">399,232 users, 505,841 sessions, and 7.35% search conversion. 
+With more time, I&#39;d add smart search and advanced filters.
+</div>
+    </div>
+    <div class="section-padding section-dark responsive">
+        <div class="desktop-45pct">
+            <div class="p bold">Projects</div>
+            <div style="height: 1rem"></div>
+            <a class="p" href="paz.html">Paz Charge</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="google.html">Google Calendar</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="leumi.html">Bank Leumi</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="mix.html">Mix & Drinx</a>
+            <div style="height: 1rem"></div>
+        </div>
+        <div class="responsive spacer"></div>
+        <div class="desktop-45pct">
+            <div class="p bold">About Me</div>
+            <div style="height: 2rem"></div>
+            <div>
+                <div class="vspace-small"></div>
+                <div class="p bold">Reach Out - I don't bite</div>
+                <div class="flex-row">
+                    <a class="p link" href="mailto:racheli.tokash@gmail.com">racheli.tokash@gmail.com</a>
+                    <div class="hspace-xsmall"></div>
+                    <img src="assets/icon_copy_mail.svg" class="copy-icon" alt="Copy email" onclick="copyEmailFooter()"></img>
+                    <span id="copy-status-footer" class="icon-copy" hidden="">Copied!</span>
+                    <div class="hspace-xsmall"></div>
+                </div>
+            </div>
+        </div>
+        <div id="debug" style="background: black; color: lime; padding: 10px; font-family: monospace; z-index: 9999;">
+            Width: <span id="width"></span>px
+        </div>
+    </div>
+    <script>
+        function updateWidth() {
+            document.getElementById('width').textContent = window.innerWidth;
+        }
+        window.addEventListener('DOMContentLoaded', updateWidth);
+        window.addEventListener('resize', updateWidth);
+    </script>
+    <script>
+        function copyEmailFooter() {
+            navigator.clipboard.writeText('racheli.tokash@gmail.com');
+            var el = document.getElementById('copy-status-footer');
+            el.hidden = false;
+            setTimeout(function () { el.hidden = true; }, 1200);
+        }
+    </script>
+</body>
+</html>

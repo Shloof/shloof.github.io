@@ -1,0 +1,597 @@
+<!doctype html>
+<html>
+<head>
+    <title>RacheliT - Mix & Drinx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="desktop.css">
+</head>
+<body>
+    <div class="section-dark collapsed responsive desktop-header-padding" style="justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 12px; justify-content: space-between;" class="header-title">
+            <a class="p bold" href="index.html">
+                Racheli <span style="color: var(--color-logo-purple);"> | </span> T
+            </a>
+            <img class="header-collapse-indicator hide-on-desktop" style="width: 2rem; height: 2rem;" src="assets/icon_close_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+            <img class="header-expand-indicator" style="width: 2rem; height: 2rem;" src="assets/icon_open_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+        </div>
+        <div class="hide-on-mobile" style="padding: 1rem;">
+            <div class="flex-center-row">
+                <a id="link_paz_dt" class="p label" href="paz.html">Paz Charge</a>
+                <div class="hspace-large"></div>
+                <a id="link_google_dt" class="p label" href="google.html">Google Calendar</a>
+                <div class="hspace-large"></div>
+                <a id="link_leumi_dt" class="p label" href="leumi.html">Leumi</a>
+                <div class="hspace-large"></div>
+                <a id="link_mix_dt" class="p label" href="mix.html">Mix & Drinx</a>
+                <div class="hspace-large"></div>
+                <a id="link_about_dt" class="p label" href="about.html">About Me</a>
+            </div>
+        </div>
+        <div class="collapse-content hide-on-desktop">
+            <div class="collapse-content-inner" style="padding-left: 2rem;">
+                <a id="link_paz_mb" class="p label" href="paz.html">Paz Charge</a>
+                <div class="vspace-small"></div>
+                <a id="link_google_mb" class="p label" href="google.html">Google Calendar</a>
+                <div class="vspace-small"></div>
+                <a id="link_leumi_mb" class="p label" href="leumi.html">Leumi</a>
+                <div class="vspace-small"></div>
+                <a id="link_mix_mb" class="p label" href="mix.html">Mix & Drinx</a>
+                <div class="vspace-small"></div>
+                <a id="link_about_mb" class="p label" href="about.html">About Me</a>
+                <div class="vspace-small"></div>
+            </div>
+        </div>
+    </div>
+    <hr class="menu-line"></hr>
+    <button class="scroll-up hidden" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <img src="assets/icon_up.png" class="full-width animate-neon-blink">
+        <script>
+            window.onscroll = function () {
+                const btn = document.querySelector('.scroll-up');
+                if (window.scrollY > 300) {
+                    btn.classList.remove('hidden');
+                } else {
+                    btn.classList.add('hidden');
+                }
+            };
+        </script>
+    </button>
+    <div class="fullscreen-overlay" onclick="closeFullscreen()">
+        <img id="fullscreen-img" src=""></img>
+    </div>
+    <script>
+        function openFullscreen(img) {
+            document.getElementById('fullscreen-img').src = img.src;
+            document.querySelector('.fullscreen-overlay').classList.add('active');
+        }
+        function closeFullscreen() {
+            document.querySelector('.fullscreen-overlay').classList.remove('active');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeFullscreen();
+        });
+    </script>
+    <script>
+        const link_paz_dt = document.getElementById("link_paz_dt")
+        link_paz_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
+        const link_google_dt = document.getElementById("link_google_dt")
+        link_google_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
+        const link_leumi_dt = document.getElementById("link_leumi_dt")
+        link_leumi_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_mix_dt = document.getElementById("link_mix_dt")
+        link_mix_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
+        const link_about_dt = document.getElementById("link_about_dt")
+        link_about_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("about.html"))
+        const link_paz_mb = document.getElementById("link_paz_mb")
+        link_paz_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
+        const link_google_mb = document.getElementById("link_google_mb")
+        link_google_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
+        const link_leumi_mb = document.getElementById("link_leumi_mb")
+        link_leumi_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_mix_mb = document.getElementById("link_mix_mb")
+        link_mix_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
+        const link_about_mb = document.getElementById("link_about_mb")
+        link_about_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("about.html"))
+    </script>
+    <div class="section-padding section-dark responsive" style="align-items: center;">
+        <div class="desktop-45pct">
+            <div class="p label bold">App Concept &amp; UX Design</div>
+            <h1>Mix &amp; Drinx</h1>
+            <div class="vspace-xsmall"></div>
+            <div class="p">Mix &amp; Drinx is a user-centered cocktail app for flavor experimenters. It delivers customizable bottled cocktails straight to your door, perfect for hangouts, celebrations, or movie nights.</div>
+            <div class="vspace-medium"></div>
+        </div>
+        <div class="desktop-5pct"></div>
+        <div class="desktop-50pct">
+            <img src="assets/img_mix_intro_mob.png" class="hide-on-desktop full-width" />
+            <img src="assets/img_mix_intro_desk.png" class="hide-on-mobile full-width" />
+        </div>
+        <div>
+            <div class="vspace-small"></div>
+            <div style="display: flex;flex-direction: row; flex-wrap: wrap;">
+                <div class="intro-item">
+                    <div class="p label bold">
+                        Role
+                    </div>
+                    <div class="p">UX &amp; UI</div>
+                    <div class="p">Micro-copy</div>
+                    <div class="p">Branding</div>
+                </div>
+                <div class="intro-item">
+                    <div class="p label bold">
+                        Tools
+                    </div>
+                    <div class="p">Figma</div>
+                    <div class="p">After Effects</div>
+                    <div class="p">Illustrator</div>
+                </div>
+            </div>
+            <div class="vspace-small"></div>
+            <h2>Goal</h2>
+            <div class="vspace-xsmall"></div>
+            <div class="p desktop-text-padding">To create an app that makes custom-made cocktails accessible at home, enabling social gatherings and celebrations without the need to go out to crowded or expensive bars.</div>
+        </div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>The Challenges</h2>
+        <div class="vspace-xsmall"></div>
+        <div class="p" style="white-space: pre-line;">Designing a seamless, user-friendly experience that captures the joy of social drinking in a home setting, especially in times of social restrictions like Covid-19.</div>
+        <div class="vspace-medium"></div>
+        <div class="responsive">
+            <div style="display: flex; flex-direction: row; align-items: top;" class="desktop-30pct">
+                <img src="assets/icon_challenges_personalization.svg" style="width: 4rem; height: 4rem;">
+                <div class="hspace-medium"></div>
+                <div>
+                    <div class="p label">Personalization</div>
+                    <div class="p">Offering flavor experimentation without overwhelming the user</div>
+                </div>
+            </div>
+            <div class="vspace-medium desktop-5pct"></div>
+            <div style="display: flex; flex-direction: row; align-items: top;" class="desktop-30pct">
+                <img src="assets/icon_challenges_usability.svg" style="width: 4rem; height: 4rem;">
+                <div class="hspace-medium"></div>
+                <div>
+                    <div class="p label">Usability &amp; Fun</div>
+                    <div class="p">keeping the interface intuitive while maintaining a playful brand feel</div>
+                </div>
+            </div>
+            <div class="vspace-medium desktop-5pct"></div>
+            <div style="display: flex; flex-direction: row; align-items: top;" class="desktop-30pct">
+                <img src="assets/icon_challenges_social.svg" style="width: 4rem; height: 4rem;">
+                <div class="hspace-medium"></div>
+                <div>
+                    <div class="p label">Social Element</div>
+                    <div class="p">Making the app feel like a shared experience, not just an order</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>Competitive Analysis</h2>
+        <div class="vspace-xsmall"></div>
+        <div class="p">A quick comparison of design and UX patterns found in leading calendar tools.</div>
+        <div class="vspace-medium"></div>
+        <div style="display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;">
+            <img src="assets/img_mix_logo_ca_1.png"></img>
+            <div class="vspace-medium"></div>
+            <div class="hspace-small"></div>
+            <img src="assets/img_mix_logo_ca_2.png"></img>
+            <div class="vspace-medium"></div>
+            <div class="hspace-small"></div>
+            <img src="assets/img_mix_logo_ca_3.png"></img>
+            <div class="vspace-medium"></div>
+            <div class="hspace-small"></div>
+            <img src="assets/img_mix_logo_ca_4.png"></img>
+            <div class="vspace-medium"></div>
+            <div class="hspace-small"></div>
+            <img src="assets/img_mix_logo_ca_5.png"></img>
+        </div>
+        <div class="vspace-medium"></div>
+        <div class="flex-row" style="flex-wrap: wrap;gap: 0.7rem;">
+            <div class="ca-entry desktop-25pct">
+                <h3>Age limit</h3>
+                <div class="p">An age-verification pop-up or sign-up asking if the user is over 18/21.</div>
+                <div class="vspace-small"></div>
+                <div class="ca-checklist">
+                    <div
+                        class="p bold ca-checklist-item ca-check-yes">
+                        <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
+                        Common
+                    </div>
+                </div>
+            </div>
+            <div class="ca-entry desktop-25pct">
+                <h3>Recommendations</h3>
+                <div class="p">User recommendations, reviews, favorites, and ratings.</div>
+                <div class="vspace-small"></div>
+                <div class="ca-checklist">
+                    <div
+                        class="p bold ca-checklist-item ca-check-yes">
+                        <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
+                        Common
+                    </div>
+                </div>
+            </div>
+            <div class="ca-entry desktop-25pct">
+                <h3>Images &amp; illustrations</h3>
+                <div class="p">Strong emphasis on eye-catching visuals, product images or colorful illustrations.</div>
+                <div class="vspace-small"></div>
+                <div class="ca-checklist">
+                    <div
+                        class="p bold ca-checklist-item ca-check-yes">
+                        <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
+                        Common
+                    </div>
+                </div>
+            </div>
+            <div class="ca-entry desktop-25pct">
+                <h3>Store</h3>
+                <div class="p">Store with accessories like beverage-specific glasses and ready-made cocktail packages.</div>
+                <div class="vspace-small"></div>
+                <div class="ca-checklist">
+                    <div
+                        class="p bold ca-checklist-item ca-check-yes">
+                        <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
+                        Common
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>User Flow</h2>
+        <div class="vspace-small"></div>
+        <div>
+            <img class="full-width hide-on-desktop" src="assets/mix_user_flow_mob.svg"></img>
+            <img class="full-width hide-on-mobile" src="assets/mix_user_flow_desk.svg"></img>
+        </div>
+        <div class="vspace-xsmall"></div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>Wireframes</h2>
+        <div class="vspace-small"></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_wireframes_birthday_1.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+            <div class="vspace-small desktop-5pct"></div>
+            <img src="assets/img_mix_wireframes_birthday_2.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Birthday Verification</div>
+             <div class="p">Instead of a simple yes/no age check, users enter their date of birth. This makes verification clearer and more engaging, while also allowing underage users to be directed to non-alcoholic options.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_wireframes_allergies_1.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+            <div class="vspace-small desktop-5pct"></div>
+            <img src="assets/img_mix_wireframes_allergies_2.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Understanding the user</div>
+             <div class="p">During sign-up, the app learns about the user by identifying allergies and capturing taste preferences to personalize the experience.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_wireframes_drink_creation_1.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+            <div class="vspace-small desktop-5pct"></div>
+            <img src="assets/img_mix_wireframes_drink_creation_2.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Making it engaging</div>
+             <div class="p">Early wireframes outlined the cocktail creation steps. They highlighted the need for ingredient visuals and better navigation.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_wireframes_order_review_1.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+            <div class="vspace-small desktop-5pct"></div>
+            <img src="assets/img_mix_wireframes_order_review_2.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Order review</div>
+             <div class="p">A structured layout lets users easily check their chosen ingredients, customize details, and confirm the final cocktail before adding it to the cart.</div> 
+        </div>
+    </div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>Design</h2>
+        <div class="vspace-small"></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <h3 class="hide-on-desktop">Onboarding</h3>
+        <div id="foo2" class="vspace-small hide-on-desktop"></div>
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_design_birthday_1.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+            <div class="vspace-small desktop-5pct"></div>
+            <img src="assets/img_mix_design_birthday_2.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <h3 class="hide-on-mobile">Onboarding</h3>
+            <div class="hide-on-mobile vspace-small"></div>
+            <div class="p label bold">Date of birth</div>
+             <div class="p">The user begins by entering their date of birth. If they are under 18, a message appears informing them that they can only order Mocktails (non-alcoholic drinks).</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_design_personalization_1.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+            <div class="vspace-small desktop-5pct"></div>
+            <img src="assets/img_mix_design_personalization_2.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Personalization</div>
+             <div class="p">The user can mark any allergies or skip the step if none apply. Choosing a preferred flavor helps make the flow more personal and engaging.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_design_complete.gif" style="width: 60%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Onboarding completion</div>
+             <div class="p">The user finishes the journey with a smile, cheering on a yummy animation cocktail.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <h3 class="hide-on-desktop">Creating a Cocktail</h3>
+        <div id="foo2" class="vspace-small hide-on-desktop"></div>
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_design_home.png" style="width: 60%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <h3 class="hide-on-mobile">Creating a Cocktail</h3>
+            <div class="hide-on-mobile vspace-small"></div>
+            <div class="p label bold">Home</div>
+             <div class="p">After the onboarding, the user lands on the Home screen, where they can start creating their own cocktail or choose from a variety of existing options to generate a surprising mix.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_design_choose_cocktail.gif" style="width: 60%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Cocktail or Non-Alcoholic</div>
+             <div class="p">After the onboarding, the user lands on the Home screen, where they can start creating their own cocktail or choose from a variety of existing options to generate a surprising mix.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_design_size.png" style="width: 60%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Drink size options</div>
+             <div class="p">The cocktail ordering process includes five steps with a progress bar that also allows going back to edit. The first step is choosing a bottle size that animates based on the user&#39;s selection.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_design_ingredients.gif" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+            <div class="vspace-small desktop-5pct"></div>
+            <img src="assets/img_mix_design_ingredients_stat.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Choosing flavors &amp; ingredients</div>
+             <div class="p">In the following steps, the user selects the alcohol base, liqueur, and fruits, with pairing recommendations and an animated carousel for smooth transitions between ingredients.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_design_shake.gif" style="width: 60%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Shake Interaction</div>
+             <div class="p">In the final step, the user performs a shake gesture to mix their cocktail, adding a delightful UX moment that feels both playful and interactive.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <h3 class="hide-on-desktop">Customization</h3>
+        <div id="foo2" class="vspace-small hide-on-desktop"></div>
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_design_bottle_label_1.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+            <div class="vspace-small desktop-5pct"></div>
+            <img src="assets/img_mix_design_bottle_label_2.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <h3 class="hide-on-mobile">Customization</h3>
+            <div class="hide-on-mobile vspace-small"></div>
+            <div class="p label bold">Customized bottle</div>
+             <div class="p">If the user wishes, they can personalize their bottle by adding and editing text - adjusting the font, color, and size.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_design_bottle_options_1.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+            <div class="vspace-small desktop-5pct"></div>
+            <img src="assets/img_mix_design_bottle_options_2.png" style="width: 45%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Design Options</div>
+             <div class="p">They can add their own design or choose from a variety of existing patterns.</div> 
+        </div>
+    </div>
+    <div id="space001" class="vspace-medium"></div>
+    <div></div>
+    <div class="responsive alt-row" style="justify-content: space-between;">
+        <div class="full-width desktop-45pct"
+            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
+            <img src="assets/img_mix_design_order_tracking.png" style="width: 60%;" class="rounded-image thumbnail"
+                onclick="openFullscreen(this)">
+        </div>
+        <div class="vspace-small desktop-5pct"></div>
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Order Tracking</div>
+             <div class="p">At the end of the process, the user reaches a tracking screen with delivery time and order status. While waiting, they can explore other users&#39; cocktails for inspiration.</div> 
+        </div>
+    </div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>Conclusions</h2>
+        <div class="vspace-xsmall"></div>
+        <div class="p" style="white-space: pre-line;">Mix &amp; Drinx brings the cocktail bar experience home with a user-friendly app 
+that celebrates flavor experimentation.
+</div>
+        <div class="vspace-medium"></div>
+        <ol class="p responsive"
+            style="display:flex; flex-wrap:wrap; gap:2rem; margin:0; padding: left 1.4em; list-style-position:outside;">
+            <li class="desktop-30pct">
+                <span style="white-space: pre-line;padding-left: 0.2  rem;"> Recommendations:
+helping users discover new and personalized flavor combinations.
+</span>
+            </li>
+            <li class="desktop-30pct">
+                <span style="white-space: pre-line;padding-left: 0.2  rem;"> Social Integration:
+Making cocktail creation a
+shared and social experience.
+</span>
+            </li>
+            <li class="desktop-30pct">
+                <span style="white-space: pre-line;padding-left: 0.2  rem;"> Seamless Ordering:
+From easy customization to smooth doorstep delivery.
+</span>
+            </li>
+        </ol>
+        <div class="vspace-medium"></div>
+    </div>
+    <div class="section-padding section-dark responsive">
+        <div class="desktop-45pct">
+            <div class="p bold">Projects</div>
+            <div style="height: 1rem"></div>
+            <a class="p" href="paz.html">Paz Charge</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="google.html">Google Calendar</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="leumi.html">Bank Leumi</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="mix.html">Mix & Drinx</a>
+            <div style="height: 1rem"></div>
+        </div>
+        <div class="responsive spacer"></div>
+        <div class="desktop-45pct">
+            <div class="p bold">About Me</div>
+            <div style="height: 2rem"></div>
+            <div>
+                <div class="vspace-small"></div>
+                <div class="p bold">Reach Out - I don't bite</div>
+                <div class="flex-row">
+                    <a class="p link" href="mailto:racheli.tokash@gmail.com">racheli.tokash@gmail.com</a>
+                    <div class="hspace-xsmall"></div>
+                    <img src="assets/icon_copy_mail.svg" class="copy-icon" alt="Copy email" onclick="copyEmailFooter()"></img>
+                    <span id="copy-status-footer" class="icon-copy" hidden="">Copied!</span>
+                    <div class="hspace-xsmall"></div>
+                </div>
+            </div>
+        </div>
+        <div id="debug" style="background: black; color: lime; padding: 10px; font-family: monospace; z-index: 9999;">
+            Width: <span id="width"></span>px
+        </div>
+    </div>
+    <script>
+        function updateWidth() {
+            document.getElementById('width').textContent = window.innerWidth;
+        }
+        window.addEventListener('DOMContentLoaded', updateWidth);
+        window.addEventListener('resize', updateWidth);
+    </script>
+    <script>
+        function copyEmailFooter() {
+            navigator.clipboard.writeText('racheli.tokash@gmail.com');
+            var el = document.getElementById('copy-status-footer');
+            el.hidden = false;
+            setTimeout(function () { el.hidden = true; }, 1200);
+        }
+    </script>
+</body>
+</html>

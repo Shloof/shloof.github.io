@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RacheliT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="desktop.css">
+</head>
+<body>
+    <div class="section-dark collapsed responsive desktop-header-padding" style="justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 12px; justify-content: space-between;" class="header-title">
+            <a class="p bold" href="index.html">
+                Racheli <span style="color: var(--color-logo-purple);"> | </span> T
+            </a>
+            <img class="header-collapse-indicator hide-on-desktop" style="width: 2rem; height: 2rem;" src="assets/icon_close_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+            <img class="header-expand-indicator" style="width: 2rem; height: 2rem;" src="assets/icon_open_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+        </div>
+        <div class="hide-on-mobile" style="padding: 1rem;">
+            <div class="flex-center-row">
+                <a id="link_paz_dt" class="p label" href="paz.html">Paz Charge</a>
+                <div class="hspace-large"></div>
+                <a id="link_google_dt" class="p label" href="google.html">Google Calendar</a>
+                <div class="hspace-large"></div>
+                <a id="link_leumi_dt" class="p label" href="leumi.html">Leumi</a>
+                <div class="hspace-large"></div>
+                <a id="link_mix_dt" class="p label" href="mix.html">Mix & Drinx</a>
+                <div class="hspace-large"></div>
+                <a id="link_about_dt" class="p label" href="about.html">About Me</a>
+            </div>
+        </div>
+        <div class="collapse-content hide-on-desktop">
+            <div class="collapse-content-inner" style="padding-left: 2rem;">
+                <a id="link_paz_mb" class="p label" href="paz.html">Paz Charge</a>
+                <div class="vspace-small"></div>
+                <a id="link_google_mb" class="p label" href="google.html">Google Calendar</a>
+                <div class="vspace-small"></div>
+                <a id="link_leumi_mb" class="p label" href="leumi.html">Leumi</a>
+                <div class="vspace-small"></div>
+                <a id="link_mix_mb" class="p label" href="mix.html">Mix & Drinx</a>
+                <div class="vspace-small"></div>
+                <a id="link_about_mb" class="p label" href="about.html">About Me</a>
+                <div class="vspace-small"></div>
+            </div>
+        </div>
+    </div>
+    <hr class="menu-line"></hr>
+    <button class="scroll-up hidden" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <img src="assets/icon_up.png" class="full-width animate-neon-blink">
+        <script>
+            window.onscroll = function () {
+                const btn = document.querySelector('.scroll-up');
+                if (window.scrollY > 300) {
+                    btn.classList.remove('hidden');
+                } else {
+                    btn.classList.add('hidden');
+                }
+            };
+        </script>
+    </button>
+    <div class="fullscreen-overlay" onclick="closeFullscreen()">
+        <img id="fullscreen-img" src=""></img>
+    </div>
+    <script>
+        function openFullscreen(img) {
+            document.getElementById('fullscreen-img').src = img.src;
+            document.querySelector('.fullscreen-overlay').classList.add('active');
+        }
+        function closeFullscreen() {
+            document.querySelector('.fullscreen-overlay').classList.remove('active');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeFullscreen();
+        });
+    </script>
+    <script>
+        const link_paz_dt = document.getElementById("link_paz_dt")
+        link_paz_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
+        const link_google_dt = document.getElementById("link_google_dt")
+        link_google_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
+        const link_leumi_dt = document.getElementById("link_leumi_dt")
+        link_leumi_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_mix_dt = document.getElementById("link_mix_dt")
+        link_mix_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
+        const link_about_dt = document.getElementById("link_about_dt")
+        link_about_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("about.html"))
+        const link_paz_mb = document.getElementById("link_paz_mb")
+        link_paz_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
+        const link_google_mb = document.getElementById("link_google_mb")
+        link_google_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
+        const link_leumi_mb = document.getElementById("link_leumi_mb")
+        link_leumi_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_mix_mb = document.getElementById("link_mix_mb")
+        link_mix_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
+        const link_about_mb = document.getElementById("link_about_mb")
+        link_about_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("about.html"))
+    </script>
+    <div class="section-padding-intro section-dark responsive" style="padding-bottom: 0%;">
+        <div class="desktop-45pct">
+            <div style="height: 20%"></div>
+            <h1>This is the <span class="intro-sign-text">sign</span> <br />you've been <br />waiting for</h1>
+            <div class="vspace-xsmall"></div>
+            <div class="responsive">
+                <div class="p" style="text-wrap: wrap;">
+                    UX/UI designer with a passion for creating beautiful, functional, and user-centered digital
+                    experiences.
+                </div>
+                <div style="width: 40%;"></div>
+            </div>
+        </div>
+        <div class="desktop-5pct">
+        </div>
+        <div class="desktop-45pct">
+            <img src="assets/neon_sign.png" class="full-width animate-neon-blink">
+        </div>
+    </div>
+    <div class="section-padding-intro section-color">
+        <h2>Featured Projects</h2>
+        <div class="vspace-xsmall"></div>
+        <div class="responsive">
+    <a class="project_card desktop-45pct" href="paz.html">
+        <img class="full-width" style="border-radius: 0.8rem 0.8rem 0 0;" src=" assets/paz_charge_mockup.png" />
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
+            <h3>Paz Charge</h3>
+            <div style="height: 1rem"></div>
+    <div class="tag_group">
+        <div class="tag_item">UX Design</div>
+        <div class="tag_item">UX audit</div>
+        <div class="tag_item">UI Design</div>
+        <div class="tag_item">Prototyping</div>
+    </div>
+            <div style="height: 1rem"></div>
+            <div class="p">A redesign based on UX audit, site architecture and brand aligned UI design.</div>
+            <div style="height: 1rem"></div>
+            <div class="flex-row" style="margin-top: auto">
+                <div class="p link">View Project</div>
+                <img src="assets/a_arrow.svg" style="width: 2rem; height: 2rem; margin-left: 8px" />
+            </div>
+        </div>
+    </a>
+            <div class="responsive spacer"></div>
+    <a class="project_card desktop-45pct" href="google.html">
+        <img class="full-width" style="border-radius: 0.8rem 0.8rem 0 0;" src=" assets/google_mockup.png" />
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
+            <h3>Google Calendar</h3>
+            <div style="height: 1rem"></div>
+    <div class="tag_group">
+        <div class="tag_item">UX Research</div>
+        <div class="tag_item">UX Design</div>
+        <div class="tag_item">Prototyping</div>
+    </div>
+            <div style="height: 1rem"></div>
+            <div class="p">A complete redesign of the google calendar website, focusing on user experience and responsive design.</div>
+            <div style="height: 1rem"></div>
+            <div class="flex-row" style="margin-top: auto">
+                <div class="p link">View Project</div>
+                <img src="assets/a_arrow.svg" style="width: 2rem; height: 2rem; margin-left: 8px" />
+            </div>
+        </div>
+    </a>
+        </div>
+        <div class="responsive spacer"></div>
+        <div class="responsive">
+    <a class="project_card desktop-45pct" href="leumi.html">
+        <img class="full-width" style="border-radius: 0.8rem 0.8rem 0 0;" src=" assets/leumi_mockup.png" />
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
+            <h3>Bank Leumi</h3>
+            <div style="height: 1rem"></div>
+    <div class="tag_group">
+        <div class="tag_item">UX Design</div>
+        <div class="tag_item">UI Design</div>
+        <div class="tag_item">Prototyping</div>
+    </div>
+            <div style="height: 1rem"></div>
+            <div class="p">Mini-site for Bank Leumi enabling branch search and direct WhatsApp contact with managers.</div>
+            <div style="height: 1rem"></div>
+            <div class="flex-row" style="margin-top: auto">
+                <div class="p link">View Project</div>
+                <img src="assets/a_arrow.svg" style="width: 2rem; height: 2rem; margin-left: 8px" />
+            </div>
+        </div>
+    </a>
+            <div class="responsive spacer"></div>
+    <a class="project_card desktop-45pct" href="mix.html">
+        <img class="full-width" style="border-radius: 0.8rem 0.8rem 0 0;" src=" assets/mix_mockup.png" />
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
+            <h3>Mix &amp; Drinx</h3>
+            <div style="height: 1rem"></div>
+    <div class="tag_group">
+        <div class="tag_item">UX Research</div>
+        <div class="tag_item">UX Design</div>
+        <div class="tag_item">UI Design</div>
+        <div class="tag_item">Branding</div>
+        <div class="tag_item">Micro-copy</div>
+        <div class="tag_item">Prototyping</div>
+    </div>
+            <div style="height: 1rem"></div>
+            <div class="p">Mix &amp; Drinx is a user-centered cocktail app designed for people who love to experiment with flavors.</div>
+            <div style="height: 1rem"></div>
+            <div class="flex-row" style="margin-top: auto">
+                <div class="p link">View Project</div>
+                <img src="assets/a_arrow.svg" style="width: 2rem; height: 2rem; margin-left: 8px" />
+            </div>
+        </div>
+    </a>
+        </div>
+    </div>
+    <div class="section-padding section-dark responsive">
+        <div class="desktop-45pct">
+            <div class="p bold">Projects</div>
+            <div style="height: 1rem"></div>
+            <a class="p" href="paz.html">Paz Charge</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="google.html">Google Calendar</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="leumi.html">Bank Leumi</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="mix.html">Mix & Drinx</a>
+            <div style="height: 1rem"></div>
+        </div>
+        <div class="responsive spacer"></div>
+        <div class="desktop-45pct">
+            <div class="p bold">About Me</div>
+            <div style="height: 2rem"></div>
+            <div>
+                <div class="vspace-small"></div>
+                <div class="p bold">Reach Out - I don't bite</div>
+                <div class="flex-row">
+                    <a class="p link" href="mailto:racheli.tokash@gmail.com">racheli.tokash@gmail.com</a>
+                    <div class="hspace-xsmall"></div>
+                    <img src="assets/icon_copy_mail.svg" class="copy-icon" alt="Copy email" onclick="copyEmailFooter()"></img>
+                    <span id="copy-status-footer" class="icon-copy" hidden="">Copied!</span>
+                    <div class="hspace-xsmall"></div>
+                </div>
+            </div>
+        </div>
+        <div id="debug" style="background: black; color: lime; padding: 10px; font-family: monospace; z-index: 9999;">
+            Width: <span id="width"></span>px
+        </div>
+    </div>
+    <script>
+        function updateWidth() {
+            document.getElementById('width').textContent = window.innerWidth;
+        }
+        window.addEventListener('DOMContentLoaded', updateWidth);
+        window.addEventListener('resize', updateWidth);
+    </script>
+    <script>
+        function copyEmailFooter() {
+            navigator.clipboard.writeText('racheli.tokash@gmail.com');
+            var el = document.getElementById('copy-status-footer');
+            el.hidden = false;
+            setTimeout(function () { el.hidden = true; }, 1200);
+        }
+    </script>
+</body>
+</html>

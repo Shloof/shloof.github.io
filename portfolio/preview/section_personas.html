@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RacheliT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../desktop.css">
+</head>
+<body>
+    <div class="section-padding section-alt-color">
+        <h2>Personas</h2>
+        <div class="vspace-small"></div>
+        <div class="responsive">
+            <div class="desktop-45pct">
+                <div class="persona-title">
+                    <h3>Paz Charge</h3>
+                    <img src="../../assets/paz_totem.png" style="width: 40%;" />
+                </div>
+                <div class="vspace-small"></div>
+    <div class="tag_group">
+        <div class="tag_item">Brand</div>
+        <div class="tag_item">Established</div>
+        <div class="tag_item">Reliable</div>
+        <div class="tag_item">Accessible</div>
+    </div>
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="../../assets/icon_goal.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Goal</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="../../assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="../../assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px;">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>Establish Paz Charge as a trusted, eco-conscious leader in electric vehicle charging.</li>
+                                <li>Encourage drivers to charge their vehicles via the Paz Charge app.</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width: 100%" />
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="collapsed">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="../../assets/icon_motiv.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Motivations</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="../../assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="../../assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>Paz Charge has an extensive and expanding network of strategically located charging stations.</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width: 100%" />
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="collapsed">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="../../assets/icon_pain.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Pain Points</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="../../assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="../../assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>It can be challenging to persuade electric vehicle owners to switch from home charging to public charging options.</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                    <hr style="width: 100%" />
+                </div>
+                <script>
+                    document.body.addEventListener('click', function (e) {
+                        const toggle = e.target.closest('[onclick]');
+                        if (!toggle) return;
+                        e.stopPropagation();
+                        const wasCollapsed = toggle.classList.contains('collapsed');
+                        const card = toggle.closest('.desktop-45pct');
+                        card.querySelectorAll('[onclick]').forEach(el => {
+                            el.classList.add('collapsed');
+                        });
+                        if (wasCollapsed) {
+                            toggle.classList.remove('collapsed');
+                        }
+                    });
+                </script>
+            </div>
+            <div class="vspace-large desktop-5pct"></div>
+            <div class="desktop-45pct">
+                <div class="persona-title">
+                    <h3>Roei Levi</h3>
+                    <img src="../../assets/paz_charge_roei_persona.png" style="width: 40%;" />
+                </div>
+                <div class="vspace-small"></div>
+    <div class="tag_group">
+        <div class="tag_item">Brand</div>
+        <div class="tag_item">Established</div>
+        <div class="tag_item">Reliable</div>
+        <div class="tag_item">Accessible</div>
+    </div>
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="../../assets/icon_goal.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Goal</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="../../assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="../../assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px;">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>Fast, accessible charging at key locations</li>
+                                <li>Simple app for charging and payments.</li>
+                                <li>Reduced home charging without compromising convenience.</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width: 100%" />
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="collapsed">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="../../assets/icon_motiv.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Motivations</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="../../assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="../../assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>Minimizing wait time during charging.</li>
+                                <li>Affordable rates and rewards.</li>
+                                <li>Clean energy for a greener future</li>
+                                <li>Reliable backup to home charging.</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width: 100%" />
+                <div class="vspace-medium"></div>
+                <div style="cursor: pointer;" onclick="this.classList.toggle('collapsed')" class="collapsed">
+                    <div class="flex-center-row">
+                        <div class="flex-center-row">
+                            <img src="../../assets/icon_pain.png" />
+                            <div style="width: 0.5rem;"></div>
+                            <div class="p bold">Pain Points</div>
+                        </div>
+                        <img class="persona-collapse-indicator" src="../../assets/collapse_close_minus.svg" />
+                        <img class="persona-expand-indicator" src="../../assets/collapse_open_plus.svg" />
+                    </div>
+                    <div class="vspace-xsmall"></div>
+                    <div class="collapse-content" style="margin-left: 20px">
+                        <div class="collapse-content-inner">
+                            <ul class="p">
+                                <li>Complex banking tasks often feel time-consuming and overwhelming.</li>
+                                <li>Charging time is long compared to gas refueling.</li>
+                            </ul>
+                            <div class="vspace-small"></div>
+                        </div>
+                    </div>
+                    <hr style="width: 100%" />
+                </div>
+                <script>
+                    document.body.addEventListener('click', function (e) {
+                        const toggle = e.target.closest('[onclick]');
+                        if (!toggle) return;
+                        e.stopPropagation();
+                        const wasCollapsed = toggle.classList.contains('collapsed');
+                        const card = toggle.closest('.desktop-45pct');
+                        card.querySelectorAll('[onclick]').forEach(el => {
+                            el.classList.add('collapsed');
+                        });
+                        if (wasCollapsed) {
+                            toggle.classList.remove('collapsed');
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

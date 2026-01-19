@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RacheliT - About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="desktop.css">
+</head>
+<body>
+    <div class="section-dark collapsed responsive desktop-header-padding" style="justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 12px; justify-content: space-between;" class="header-title">
+            <a class="p bold" href="index.html">
+                Racheli <span style="color: var(--color-logo-purple);"> | </span> T
+            </a>
+            <img class="header-collapse-indicator hide-on-desktop" style="width: 2rem; height: 2rem;" src="assets/icon_close_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+            <img class="header-expand-indicator" style="width: 2rem; height: 2rem;" src="assets/icon_open_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+        </div>
+        <div class="hide-on-mobile" style="padding: 1rem;">
+            <div class="flex-center-row">
+                <a id="link_paz_dt" class="p label" href="paz.html">Paz Charge</a>
+                <div class="hspace-large"></div>
+                <a id="link_google_dt" class="p label" href="google.html">Google Calendar</a>
+                <div class="hspace-large"></div>
+                <a id="link_leumi_dt" class="p label" href="leumi.html">Leumi</a>
+                <div class="hspace-large"></div>
+                <a id="link_mix_dt" class="p label" href="mix.html">Mix & Drinx</a>
+                <div class="hspace-large"></div>
+                <a id="link_about_dt" class="p label" href="about.html">About Me</a>
+            </div>
+        </div>
+        <div class="collapse-content hide-on-desktop">
+            <div class="collapse-content-inner" style="padding-left: 2rem;">
+                <a id="link_paz_mb" class="p label" href="paz.html">Paz Charge</a>
+                <div class="vspace-small"></div>
+                <a id="link_google_mb" class="p label" href="google.html">Google Calendar</a>
+                <div class="vspace-small"></div>
+                <a id="link_leumi_mb" class="p label" href="leumi.html">Leumi</a>
+                <div class="vspace-small"></div>
+                <a id="link_mix_mb" class="p label" href="mix.html">Mix & Drinx</a>
+                <div class="vspace-small"></div>
+                <a id="link_about_mb" class="p label" href="about.html">About Me</a>
+                <div class="vspace-small"></div>
+            </div>
+        </div>
+    </div>
+    <hr class="menu-line"></hr>
+    <button class="scroll-up hidden" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <img src="assets/icon_up.png" class="full-width animate-neon-blink">
+        <script>
+            window.onscroll = function () {
+                const btn = document.querySelector('.scroll-up');
+                if (window.scrollY > 300) {
+                    btn.classList.remove('hidden');
+                } else {
+                    btn.classList.add('hidden');
+                }
+            };
+        </script>
+    </button>
+    <div class="fullscreen-overlay" onclick="closeFullscreen()">
+        <img id="fullscreen-img" src=""></img>
+    </div>
+    <script>
+        function openFullscreen(img) {
+            document.getElementById('fullscreen-img').src = img.src;
+            document.querySelector('.fullscreen-overlay').classList.add('active');
+        }
+        function closeFullscreen() {
+            document.querySelector('.fullscreen-overlay').classList.remove('active');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeFullscreen();
+        });
+    </script>
+    <script>
+        const link_paz_dt = document.getElementById("link_paz_dt")
+        link_paz_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
+        const link_google_dt = document.getElementById("link_google_dt")
+        link_google_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
+        const link_leumi_dt = document.getElementById("link_leumi_dt")
+        link_leumi_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_mix_dt = document.getElementById("link_mix_dt")
+        link_mix_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
+        const link_about_dt = document.getElementById("link_about_dt")
+        link_about_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("about.html"))
+        const link_paz_mb = document.getElementById("link_paz_mb")
+        link_paz_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
+        const link_google_mb = document.getElementById("link_google_mb")
+        link_google_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
+        const link_leumi_mb = document.getElementById("link_leumi_mb")
+        link_leumi_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_mix_mb = document.getElementById("link_mix_mb")
+        link_mix_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
+        const link_about_mb = document.getElementById("link_about_mb")
+        link_about_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("about.html"))
+    </script>
+    <div class="section-padding section-color responsive" style="align-items: center;">
+        <div class="desktop-45pct">
+            <h1>About Me</h1>
+            <div class="vspace-small"></div>
+            <div class="p">Hi, I’m Racheli Dortman (Tokash), a UX/UI designer from Israel. I’ve designed for brands like Bank Leumi, weSure, Caesarstone, Paz Charge, and more.</div>
+            <div class="vspace-small"></div>
+            <div class="hide-on-mobile">
+                <div class="p label bold" style="color: var(--color-text);">I blend creativity, strategy, and empathy to craft intuitive, meaningful experiences.</div>
+                <div class="p">If you’re up for working with a happy, song-singing, object-naming human, we should definitely talk.</div>
+            </div>
+            <div class="vspace-small"></div>
+            <div class="p bold">Reach Out - I don't bite</div>
+            <div class="flex-row">
+                <a class="p link" href="mailto:racheli.tokash@gmail.com">racheli.tokash@gmail.com</a>
+                <div class="hspace-xsmall"></div>
+                <img src="assets/icon_copy_mail.svg" class="copy-icon" alt="Copy email" onclick="copyEmailAbout()" />
+                <span id="copy-status-about" class="icon-copy" hidden>Copied!</span>
+                <div class="hspace-xsmall"></div>
+            </div>
+        </div>
+        <div class="vspace-medium"></div>
+        <div class="desktop-10pct"></div>
+        <div class="desktop-45pct">
+            <img src="assets/about_img_mob.png" class="hide-on-desktop full-width" />
+            <img src="assets/about_img_desk.png" class="hide-on-mobile full-width" />
+        </div>
+        <div class="vspace-medium"></div>
+        <div class="hide-on-desktop">
+            <div class="p label bold" style="color: var(--color-text);">I blend creativity, strategy, and empathy to craft intuitive, meaningful experiences.</div>
+            <div class="vspace-small"></div>
+            <div class="p">If you’re up for working with a happy, song-singing, object-naming human, we should definitely talk.</div>
+        </div>
+    </div>
+    <script>
+        function copyEmailAbout() {
+            navigator.clipboard.writeText('racheli.tokash@gmail.com');
+            var el = document.getElementById('copy-status-about');
+            el.hidden = false;
+            setTimeout(function () { el.hidden = true; }, 1200);
+        }
+    </script>
+    <div class="section-padding section-dark responsive">
+        <div class="desktop-45pct">
+            <div class="p bold">Projects</div>
+            <div style="height: 1rem"></div>
+            <a class="p" href="paz.html">Paz Charge</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="google.html">Google Calendar</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="leumi.html">Bank Leumi</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="mix.html">Mix & Drinx</a>
+            <div style="height: 1rem"></div>
+        </div>
+        <div class="responsive spacer"></div>
+        <div class="desktop-45pct">
+            <div class="p bold">About Me</div>
+            <div style="height: 2rem"></div>
+            <div>
+                <div class="vspace-small"></div>
+                <div class="p bold">Reach Out - I don't bite</div>
+                <div class="flex-row">
+                    <a class="p link" href="mailto:racheli.tokash@gmail.com">racheli.tokash@gmail.com</a>
+                    <div class="hspace-xsmall"></div>
+                    <img src="assets/icon_copy_mail.svg" class="copy-icon" alt="Copy email" onclick="copyEmailFooter()"></img>
+                    <span id="copy-status-footer" class="icon-copy" hidden="">Copied!</span>
+                    <div class="hspace-xsmall"></div>
+                </div>
+            </div>
+        </div>
+        <div id="debug" style="background: black; color: lime; padding: 10px; font-family: monospace; z-index: 9999;">
+            Width: <span id="width"></span>px
+        </div>
+    </div>
+    <script>
+        function updateWidth() {
+            document.getElementById('width').textContent = window.innerWidth;
+        }
+        window.addEventListener('DOMContentLoaded', updateWidth);
+        window.addEventListener('resize', updateWidth);
+    </script>
+    <script>
+        function copyEmailFooter() {
+            navigator.clipboard.writeText('racheli.tokash@gmail.com');
+            var el = document.getElementById('copy-status-footer');
+            el.hidden = false;
+            setTimeout(function () { el.hidden = true; }, 1200);
+        }
+    </script>
+</body>
+</html>
