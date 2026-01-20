@@ -105,8 +105,8 @@
         </div>
         <div class="desktop-5pct"></div>
         <div class="desktop-50pct">
-            <img src="assets/img_mix_intro_mob.png" class="hide-on-desktop full-width" />
-            <img src="assets/img_mix_intro_desk.png" class="hide-on-mobile full-width" />
+            <img src="assets/img_mix_intro_mob.png" class="hide-on-desktop full-width rounded-image" />
+            <img src="assets/img_mix_intro_desk.png" class="hide-on-mobile full-width rounded-image" />
         </div>
         <div>
             <div class="vspace-small"></div>
@@ -543,11 +543,10 @@ From easy customization to smooth doorstep delivery.
 </span>
             </li>
         </ol>
-        <div class="vspace-medium"></div>
     </div>
     <div class="section-padding section-dark responsive">
         <div class="desktop-45pct">
-            <div class="p bold">Projects</div>
+            <a class="p bold" href="index.html">Projects</a>
             <div style="height: 1rem"></div>
             <a class="p" href="paz.html">Paz Charge</a>
             <div style="height: 1rem"></div>
@@ -560,10 +559,9 @@ From easy customization to smooth doorstep delivery.
         </div>
         <div class="responsive spacer"></div>
         <div class="desktop-45pct">
-            <div class="p bold">About Me</div>
+            <a class="p bold" href="about.html">About Me</a>
             <div style="height: 2rem"></div>
             <div>
-                <div class="vspace-small"></div>
                 <div class="p bold">Reach Out - I don't bite</div>
                 <div class="flex-row">
                     <a class="p link" href="mailto:racheli.tokash@gmail.com">racheli.tokash@gmail.com</a>
@@ -574,17 +572,7 @@ From easy customization to smooth doorstep delivery.
                 </div>
             </div>
         </div>
-        <div id="debug" style="background: black; color: lime; padding: 10px; font-family: monospace; z-index: 9999;">
-            Width: <span id="width"></span>px
-        </div>
     </div>
-    <script>
-        function updateWidth() {
-            document.getElementById('width').textContent = window.innerWidth;
-        }
-        window.addEventListener('DOMContentLoaded', updateWidth);
-        window.addEventListener('resize', updateWidth);
-    </script>
     <script>
         function copyEmailFooter() {
             navigator.clipboard.writeText('racheli.tokash@gmail.com');

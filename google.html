@@ -403,6 +403,7 @@ personal needs
             <div class="vspace-small"></div>
             <div class="p label bold">Current</div>
             <div class="p">Today, all events look the same and customization is limited to color choice. To better match user preferences, we defined several enhancements</div>
+            <div class="vspace-medium"></div>
         </div>
         <div class="box-image-2">
             <img src="assets/google_event_vision_solutions_s.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)"
@@ -464,6 +465,7 @@ personal needs
             <div class="vspace-small"></div>
             <div class="p label bold">Current</div>
             <div class="p">A single click on an event opens a side panel with its details. To edit, the user must click the edit button, which redirects to advanced editing in a new window.</div>
+            <div class="vspace-medium"></div>
         </div>
         <div class="box-image-2">
             <img src="assets/google_quick_edit_solutions_s.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)"
@@ -510,7 +512,7 @@ personal needs
             }
         }
     </style>
-    <h3></h3>
+    <h3>Advanced editing</h3>
     <div class="vspace-small"></div>
     <div class="pair-grid-container">
         <div class="box-image-1">
@@ -521,6 +523,7 @@ personal needs
             <div class="vspace-small"></div>
             <div class="p label bold">Current</div>
             <div class="p">Double-clicking an event opens the advanced editing mode with editable categories and tabs for details or &#34;Find a time.&#34;</div>
+            <div class="vspace-medium"></div>
         </div>
         <div class="box-image-2">
             <img src="assets/google_advanced_editing_calendar_solutions_s.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)"
@@ -641,7 +644,7 @@ personal needs
     </div>
     <div class="section-padding section-dark responsive">
         <div class="desktop-45pct">
-            <div class="p bold">Projects</div>
+            <a class="p bold" href="index.html">Projects</a>
             <div style="height: 1rem"></div>
             <a class="p" href="paz.html">Paz Charge</a>
             <div style="height: 1rem"></div>
@@ -654,10 +657,9 @@ personal needs
         </div>
         <div class="responsive spacer"></div>
         <div class="desktop-45pct">
-            <div class="p bold">About Me</div>
+            <a class="p bold" href="about.html">About Me</a>
             <div style="height: 2rem"></div>
             <div>
-                <div class="vspace-small"></div>
                 <div class="p bold">Reach Out - I don't bite</div>
                 <div class="flex-row">
                     <a class="p link" href="mailto:racheli.tokash@gmail.com">racheli.tokash@gmail.com</a>
@@ -668,17 +670,7 @@ personal needs
                 </div>
             </div>
         </div>
-        <div id="debug" style="background: black; color: lime; padding: 10px; font-family: monospace; z-index: 9999;">
-            Width: <span id="width"></span>px
-        </div>
     </div>
-    <script>
-        function updateWidth() {
-            document.getElementById('width').textContent = window.innerWidth;
-        }
-        window.addEventListener('DOMContentLoaded', updateWidth);
-        window.addEventListener('resize', updateWidth);
-    </script>
     <script>
         function copyEmailFooter() {
             navigator.clipboard.writeText('racheli.tokash@gmail.com');

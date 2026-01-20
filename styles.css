@@ -93,6 +93,7 @@ a {
     top: 85%;
     right: 0;
     width: 16vw;
+    cursor: pointer;
     border-radius: 20rem 0 0 20rem;
     border: 0;
     background-color: var(--color-background-dark);
@@ -110,11 +111,11 @@ a {
 
 /* Section styles */
 
-.section-alt-color:nth-of-type(odd) {
+.section-alt-color:nth-of-type(even) {
     background-color: var(--color-background-bright);
 }
 
-.section-alt-color:nth-of-type(even) {
+.section-alt-color:nth-of-type(odd) {
     background-color: var(--color-background);
 }
 
@@ -172,7 +173,7 @@ a {
 /* Component styles */
 
 .rounded-image {
-    border-radius: 1rem;
+    border-radius: 0.6rem;
 }
 
 .pair-image {
@@ -192,7 +193,7 @@ a {
     width: 100%;
 }
 
-.improvement- .improvement .intro-sign-text {
+.intro-sign-text {
     background: var(--color-gradient);
     background-clip: text;
     -webkit-text-fill-color: transparent;

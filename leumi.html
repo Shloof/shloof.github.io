@@ -105,7 +105,7 @@
         </div>
         <div class="desktop-5pct"></div>
         <div class="desktop-50pct">
-            <img src="assets/img_leumi_intro.png" class="hide-on-desktop full-width" style="border-radius: 1rem;" />
+            <img src="assets/img_leumi_intro_mob.png" class="hide-on-desktop full-width" style="border-radius: 1rem;" />
             <img src="assets/img_leumi_intro_desk.png" class="hide-on-mobile full-width" style="border-radius: 1rem;" />
         </div>
         <div>
@@ -179,7 +179,7 @@
             <div class="desktop-45pct">
                 <div class="persona-title">
                     <h3>Leumi</h3>
-                    <img src="assets/paz_totem.png" style="width: 40%;" />
+                    <img src="assets/leumi_persona.png" style="width: 40%;" />
                 </div>
                 <div class="vspace-small"></div>
     <div class="tag_group">
@@ -506,7 +506,7 @@ With more time, I&#39;d add smart search and advanced filters.
     </div>
     <div class="section-padding section-dark responsive">
         <div class="desktop-45pct">
-            <div class="p bold">Projects</div>
+            <a class="p bold" href="index.html">Projects</a>
             <div style="height: 1rem"></div>
             <a class="p" href="paz.html">Paz Charge</a>
             <div style="height: 1rem"></div>
@@ -519,10 +519,9 @@ With more time, I&#39;d add smart search and advanced filters.
         </div>
         <div class="responsive spacer"></div>
         <div class="desktop-45pct">
-            <div class="p bold">About Me</div>
+            <a class="p bold" href="about.html">About Me</a>
             <div style="height: 2rem"></div>
             <div>
-                <div class="vspace-small"></div>
                 <div class="p bold">Reach Out - I don't bite</div>
                 <div class="flex-row">
                     <a class="p link" href="mailto:racheli.tokash@gmail.com">racheli.tokash@gmail.com</a>
@@ -533,17 +532,7 @@ With more time, I&#39;d add smart search and advanced filters.
                 </div>
             </div>
         </div>
-        <div id="debug" style="background: black; color: lime; padding: 10px; font-family: monospace; z-index: 9999;">
-            Width: <span id="width"></span>px
-        </div>
     </div>
-    <script>
-        function updateWidth() {
-            document.getElementById('width').textContent = window.innerWidth;
-        }
-        window.addEventListener('DOMContentLoaded', updateWidth);
-        window.addEventListener('resize', updateWidth);
-    </script>
     <script>
         function copyEmailFooter() {
             navigator.clipboard.writeText('racheli.tokash@gmail.com');

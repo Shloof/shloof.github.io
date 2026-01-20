@@ -617,6 +617,7 @@
             <div class="vspace-small"></div>
             <div class="p label bold">Benefits</div>
             <div class="p">Main benefits were presented in icon-based cards to make them clear, prominent, and easy to understand.</div>
+            <div class="vspace-medium"></div>
         </div>
         <div class="box-image-2">
             <img class="pair-image rounded-image thumbnail" onclick="openFullscreen(this)" src="assets/paz_design_articles_carousel.mp4.gif"
@@ -704,6 +705,7 @@
             <div class="vspace-small"></div>
             <div class="p label bold">Tab navigation</div>
             <div class="p">Articles are organized into &#34;ציבורי&#34;, &#34;מסחרי&#34; and &#34;כל הכתבות&#34;, making it easier for users to find the information they need.</div>
+            <div class="vspace-medium"></div>
         </div>
         <div class="box-image-2">
             <img class="pair-image rounded-image thumbnail" onclick="openFullscreen(this)" src="assets/paz_design_load_button.mp4.gif"
@@ -747,8 +749,7 @@
     <div class="responsive alt-row" style="justify-content: space-between;">
         <div class="full-width desktop-45pct"
             style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
-            <img src="assets/paz_design_responsive.png" style="width: 70%;" class="rounded-image thumbnail"
-                onclick="openFullscreen(this)">
+            <img src="assets/paz_design_responsive.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
         </div>
         <div class="vspace-small desktop-5pct"></div>
         <div class="desktop-45pct">
@@ -790,7 +791,7 @@ Despite time constraints, close collaboration led to measurable impact across ke
     </div>
     <div class="section-padding section-dark responsive">
         <div class="desktop-45pct">
-            <div class="p bold">Projects</div>
+            <a class="p bold" href="index.html">Projects</a>
             <div style="height: 1rem"></div>
             <a class="p" href="paz.html">Paz Charge</a>
             <div style="height: 1rem"></div>
@@ -803,10 +804,9 @@ Despite time constraints, close collaboration led to measurable impact across ke
         </div>
         <div class="responsive spacer"></div>
         <div class="desktop-45pct">
-            <div class="p bold">About Me</div>
+            <a class="p bold" href="about.html">About Me</a>
             <div style="height: 2rem"></div>
             <div>
-                <div class="vspace-small"></div>
                 <div class="p bold">Reach Out - I don't bite</div>
                 <div class="flex-row">
                     <a class="p link" href="mailto:racheli.tokash@gmail.com">racheli.tokash@gmail.com</a>
@@ -817,17 +817,7 @@ Despite time constraints, close collaboration led to measurable impact across ke
                 </div>
             </div>
         </div>
-        <div id="debug" style="background: black; color: lime; padding: 10px; font-family: monospace; z-index: 9999;">
-            Width: <span id="width"></span>px
-        </div>
     </div>
-    <script>
-        function updateWidth() {
-            document.getElementById('width').textContent = window.innerWidth;
-        }
-        window.addEventListener('DOMContentLoaded', updateWidth);
-        window.addEventListener('resize', updateWidth);
-    </script>
     <script>
         function copyEmailFooter() {
             navigator.clipboard.writeText('racheli.tokash@gmail.com');
