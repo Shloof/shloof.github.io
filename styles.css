@@ -97,7 +97,9 @@ a {
     border-radius: 20rem 0 0 20rem;
     border: 0;
     background-color: var(--color-background-dark);
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
 }
 
 /* This class moves the button left and hides it */
@@ -169,7 +171,6 @@ a {
     width: 4rem;
 }
 
-
 /* Component styles */
 
 .rounded-image {
@@ -194,10 +195,34 @@ a {
 }
 
 .intro-sign-text {
-    background: var(--color-gradient);
+    background: linear-gradient(90deg,
+            rgb(203, 145, 219),
+            rgb(181, 107, 253),
+            rgb(133, 206, 160),
+            rgb(180, 249, 200),
+            rgb(133, 206, 160),
+            rgb(181, 107, 253),
+            rgb(203, 145, 219));
+
+    background-size: 400% 100%;
+    background-position: 0% 50%;
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: sign-gradient-shift 4s linear infinite;
 }
+
+@keyframes sign-gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+
+}
+
 
 .intro-item {
     width: 50%;
@@ -277,7 +302,6 @@ a {
     color: var(--color-link);
 }
 
-
 /* Utility styles */
 
 .full-width {
@@ -287,7 +311,6 @@ a {
 .hide-on-mobile {
     display: none;
 }
-
 
 .responsive {
     display: flex;
@@ -445,7 +468,6 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .flex-center-row {
@@ -454,8 +476,6 @@ a {
     flex-direction: row;
     justify-content: space-between;
 }
-
-
 
 /* Header Styles */
 
@@ -479,7 +499,61 @@ a {
     display: block;
 }
 
-
 .header-link-highlight {
     color: var(--color-link) !important;
+}
+
+#name-t-span {
+    display: inline-block;
+    /* Required for transforms */
+    transition:
+        transform 0.6s ease, opacity 0.4s,
+        transform-origin: bottom right;
+    /* Pivots from the bottom corner */
+}
+
+/* When the parent <a> is hovered, animate the child <span> */
+#name-title:hover #name-t-span {
+    transform: translateY(0.35rem) rotate(90deg);
+    /* Moves down and tips over */
+    opacity: 1;
+    /* Optional: fades out as it falls */
+}
+
+
+name #name-separator.separator-blink {
+    animation: separator-blink 1s steps(1, end) 3;
+}
+
+@keyframes separator-blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+#name-t-span.t-drop {
+    display: inline-block;
+    animation: t-drop 0.7s ease-in forwards;
+    transform-origin: bottom center;
+}
+
+@keyframes t-drop {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    70% {
+        transform: translateY(16px) rotate(12deg);
+    }
+
+    100% {
+        transform: translateY(18px) rotate(6deg);
+    }
 }

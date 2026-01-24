@@ -10,8 +10,10 @@
 <body>
     <div class="section-dark collapsed responsive desktop-header-padding" style="justify-content: space-between;">
         <div style="display: flex; align-items: center; gap: 12px; justify-content: space-between;" class="header-title">
-            <a class="p bold" href="index.html">
-                Racheli <span style="color: var(--color-logo-purple);"> | </span> T
+            <a id="name-title" class="p bold" href="index.html">
+                <span id="name-span"></span>
+                <span id="name-seperator" style="color: var(--color-logo-purple);"> | </span>
+                <span id="name-t-span"></span>
             </a>
             <img class="header-collapse-indicator hide-on-desktop" style="width: 2rem; height: 2rem;" src="assets/icon_close_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
             <img class="header-expand-indicator" style="width: 2rem; height: 2rem;" src="assets/icon_open_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
@@ -94,6 +96,25 @@
         link_mix_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
         const link_about_mb = document.getElementById("link_about_mb")
         link_about_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("about.html"))
+    </script>
+    <script>
+        const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+        const text = "Racheli";
+        const targetName = document.getElementById("name-span");
+        const targetT = document.getElementById("name-t-span");
+        const targetSeperator = document.getElementById("name-seperator");
+        let index = 0;
+        function typeWriter() {
+            if (index == text.length) {
+                targetT.textContent = "T";
+                targetSeperator.classList.add("seperator-blink");
+                return;
+            }
+            targetName.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, randomInt(40, 90));
+        }
+        typeWriter();
     </script>
     <div class="section-padding section-dark responsive" style="align-items: center;">
         <div class="desktop-45pct">
@@ -666,6 +687,12 @@ personal needs
                     <div class="hspace-xsmall"></div>
                     <img src="assets/icon_copy_mail.svg" class="copy-icon" alt="Copy email" onclick="copyEmailFooter()"></img>
                     <span id="copy-status-footer" class="icon-copy" hidden="">Copied!</span>
+                    <div class="hspace-xsmall"></div>
+                </div>
+                <div class="flex-row">
+                    <a class="p link" href="assets/Rachel_Dortman_CV.pdf" target="_blank" rel="noopener">My CV</a>
+                    <div class="hspace-xsmall"></div>
+                    <img src="assets/icon_open_cv.svg" alt="Open CV"></img>
                     <div class="hspace-xsmall"></div>
                 </div>
             </div>
