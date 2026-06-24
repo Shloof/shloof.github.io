@@ -1,0 +1,121 @@
+/* Mobile Baseline Styles (no media query - default) */
+
+/* Typography - mobile baseline */
+h1 {
+    font-size: 3rem;
+    line-height: 1.2em;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+    line-height: 1.2em;
+}
+
+/* Section padding - mobile */
+.section-padding-intro {
+    padding: 8vh 6vw;
+}
+
+.section-padding {
+    padding: 8vh 6vw;
+}
+
+/* Spacers - mobile */
+.vspace-xsmall {
+    height: 0.5rem;
+}
+
+.vspace-small {
+    height: 1.5rem;
+}
+
+.vspace-medium {
+    height: 3rem;
+}
+
+.vspace-large {
+    height: 5rem;
+}
+
+.vspace-xlarge {
+    height: 8rem;
+}
+
+.hspace-xsmall {
+    width: 0.5rem;
+}
+
+.hspace-small {
+    width: 1rem;
+}
+
+.hspace-medium {
+    width: 2rem;
+}
+
+.hspace-large {
+    width: 4rem;
+}
+
+/* Scroll button - mobile */
+.scroll-up {
+    position: fixed;
+    top: 85%;
+    right: 0;
+    width: 16vw;
+    cursor: pointer;
+    border-radius: 20rem 0 0 20rem;
+    border: 0;
+    z-index: 999;
+    background-color: var(--color-background-dark);
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+/* Components - mobile */
+.intro-item {
+    width: 50%;
+    margin: 1.5rem 0;
+}
+
+/* Layout utilities - mobile */
+.hide-on-mobile {
+    display: none;
+}
+
+.responsive {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.responsive.spacer {
+    height: 1.5vh;
+    width: 1.5vh;
+}
+
+.layout-image {
+    order: 2;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+@media (max-width: 899px) {
+    .layout-image img:not(.full-width) {
+        width: 70% !important;
+    }
+
+    .layout-image img.full-width-mobile {
+        width: 100% !important;
+    }
+}
+
+/* Header - mobile */
+.header-title {
+    padding: 1.5rem;
+}

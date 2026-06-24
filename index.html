@@ -4,27 +4,60 @@
     <title>RacheliT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="desktop.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="desktop900.css">
+    <link rel="stylesheet" href="desktop1440.css">
 </head>
 <body>
+    <style>
+        .header-collapse-indicator {
+            display: block;
+        }
+        .collapsed .header-collapse-indicator {
+            display: none;
+        }
+        .header-expand-indicator {
+            display: none;
+        }
+        .collapsed .header-expand-indicator {
+            display: block;
+        }
+        .header-link-highlight {
+            color: var(--color-link) !important;
+            font-weight: 600 !important;
+        }
+        #name-separator.separator-blink {
+            animation: separator-blink 1s steps(1, end) 3;
+        }
+        @keyframes separator-blink {
+            0%,
+            50% {
+                opacity: 1;
+            }
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
     <div class="section-dark collapsed responsive desktop-header-padding" style="justify-content: space-between;">
         <div style="display: flex; align-items: center; gap: 12px; justify-content: space-between;" class="header-title">
             <a id="name-title" class="p bold" href="index.html">
                 <span id="name-span"></span>
-                <span id="name-seperator" style="color: var(--color-logo-purple);"> | </span>
+                <span id="name-separator" style="color: var(--color-logo-purple);"> | </span>
                 <span id="name-t-span"></span>
             </a>
             <img class="header-collapse-indicator hide-on-desktop" style="width: 2rem; height: 2rem;" src="assets/icon_close_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
-            <img class="header-expand-indicator" style="width: 2rem; height: 2rem;" src="assets/icon_open_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+            <img class="header-expand-indicator hide-on-desktop" style="width: 2rem; height: 2rem;" src="assets/icon_open_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
         </div>
-        <div class="hide-on-mobile" style="padding: 1rem;">
+        <div class="hide-on-mobile nav-links" style="padding: 1rem;">
             <div class="flex-center-row">
-                <a id="link_paz_dt" class="p label" href="paz.html">Paz Charge</a>
+                <a id="link_xplanner_dt" class="p label" href="xplanner.html">Xplanner</a>
                 <div class="hspace-large"></div>
                 <a id="link_google_dt" class="p label" href="google.html">Google Calendar</a>
                 <div class="hspace-large"></div>
-                <a id="link_leumi_dt" class="p label" href="leumi.html">Leumi</a>
+                <a id="link_paz_dt" class="p label" href="paz.html">Paz Charge</a>
                 <div class="hspace-large"></div>
                 <a id="link_mix_dt" class="p label" href="mix.html">Mix & Drinx</a>
                 <div class="hspace-large"></div>
@@ -32,12 +65,12 @@
             </div>
         </div>
         <div class="collapse-content hide-on-desktop">
-            <div class="collapse-content-inner" style="padding-left: 2rem;">
-                <a id="link_paz_mb" class="p label" href="paz.html">Paz Charge</a>
+            <div class="collapse-content-inner nav-links" style="padding-left: 2rem;">
+                <a id="link_xplanner_mb" class="p label" href="xplanner.html">Xplanner</a>
                 <div class="vspace-small"></div>
                 <a id="link_google_mb" class="p label" href="google.html">Google Calendar</a>
                 <div class="vspace-small"></div>
-                <a id="link_leumi_mb" class="p label" href="leumi.html">Leumi</a>
+                <a id="link_paz_mb" class="p label" href="paz.html">Paz Charge</a>
                 <div class="vspace-small"></div>
                 <a id="link_mix_mb" class="p label" href="mix.html">Mix & Drinx</a>
                 <div class="vspace-small"></div>
@@ -80,8 +113,8 @@
         link_paz_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
         const link_google_dt = document.getElementById("link_google_dt")
         link_google_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
-        const link_leumi_dt = document.getElementById("link_leumi_dt")
-        link_leumi_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_xplanner_dt = document.getElementById("link_xplanner_dt")
+        link_xplanner_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("xplanner.html"))
         const link_mix_dt = document.getElementById("link_mix_dt")
         link_mix_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
         const link_about_dt = document.getElementById("link_about_dt")
@@ -90,8 +123,8 @@
         link_paz_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
         const link_google_mb = document.getElementById("link_google_mb")
         link_google_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
-        const link_leumi_mb = document.getElementById("link_leumi_mb")
-        link_leumi_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_xplanner_mb = document.getElementById("link_xplanner_mb")
+        link_xplanner_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("xplanner.html"))
         const link_mix_mb = document.getElementById("link_mix_mb")
         link_mix_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
         const link_about_mb = document.getElementById("link_about_mb")
@@ -102,12 +135,12 @@
         const text = "Racheli";
         const targetName = document.getElementById("name-span");
         const targetT = document.getElementById("name-t-span");
-        const targetSeperator = document.getElementById("name-seperator");
+        const targetSeparator = document.getElementById("name-separator");
         let index = 0;
         function typeWriter() {
             if (index == text.length) {
                 targetT.textContent = "T";
-                targetSeperator.classList.add("seperator-blink");
+                targetSeparator.classList.add("separator-blink");
                 return;
             }
             targetName.textContent += text.charAt(index);
@@ -116,13 +149,39 @@
         }
         typeWriter();
     </script>
+    <style>
+        .intro-sign-text {
+            background: linear-gradient(90deg,
+                    rgb(203, 145, 219),
+                    rgb(181, 107, 253),
+                    rgb(133, 206, 160),
+                    rgb(180, 249, 200),
+                    rgb(133, 206, 160),
+                    rgb(181, 107, 253),
+                    rgb(203, 145, 219));
+            background-size: 400% 100%;
+            background-position: 0% 50%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: sign-gradient-shift 4s linear infinite;
+        }
+        @keyframes sign-gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
     <div class="section-padding-intro section-dark responsive" style="padding-bottom: 0%;">
         <div class="desktop-45pct">
             <div style="height: 20%"></div>
             <h1>This is the <span class="intro-sign-text">sign</span> <br />you've been <br />waiting for</h1>
             <div class="vspace-xsmall"></div>
             <div class="responsive">
-                <div class="p" style="text-wrap: wrap;">
+                <div class="p">
                     UX/UI designer with a passion for creating beautiful, functional, and user-centered digital
                     experiences.
                 </div>
@@ -131,27 +190,28 @@
         </div>
         <div class="desktop-5pct">
         </div>
-        <div class="desktop-45pct">
-            <img src="assets/neon_sign.png" class="full-width animate-neon-blink">
+        <div class="desktop-45pct" style="display: flex;">
+            <img src="assets/neon_sign.png" class="full-width animate-neon-blink" style="object-fit: contain;">
         </div>
     </div>
     <div class="section-padding-intro section-color">
         <h2>Featured Projects</h2>
         <div class="vspace-xsmall"></div>
         <div class="responsive">
-    <a class="project_card desktop-45pct" href="paz.html">
-        <img class="full-width" style="border-radius: 0.8rem 0.8rem 0 0;" src=" assets/paz_charge_mockup.png" />
+    <a class="project_card desktop-45pct" href="xplanner.html" >
+        <div style="position: relative; overflow: hidden; border-radius: 0.8rem 0.8rem 0 0;">
+            <img class="full-width" style="display: block;" src=" assets/xplanner_mockup.png" />
+        </div>
         <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
-            <h3>Paz Charge</h3>
+            <h3>Xplanner</h3>
             <div style="height: 1rem"></div>
     <div class="tag_group">
-        <div class="tag_item">UX Design</div>
-        <div class="tag_item">UX audit</div>
-        <div class="tag_item">UI Design</div>
-        <div class="tag_item">Prototyping</div>
+        <div class="tag_item">UX Strategy &amp; UI</div>
+        <div class="tag_item">Information Architecture</div>
+        <div class="tag_item">Branding</div>
     </div>
             <div style="height: 1rem"></div>
-            <div class="p">A redesign based on UX audit, site architecture and brand aligned UI design.</div>
+            <div class="p">UX research and design for an early-stage scientific platform, covering strategy, information architecture, and branding.</div>
             <div style="height: 1rem"></div>
             <div class="flex-row" style="margin-top: auto">
                 <div class="p link">View Project</div>
@@ -160,8 +220,10 @@
         </div>
     </a>
             <div class="responsive spacer"></div>
-    <a class="project_card desktop-45pct" href="google.html">
-        <img class="full-width" style="border-radius: 0.8rem 0.8rem 0 0;" src=" assets/google_mockup.png" />
+    <a class="project_card desktop-45pct" href="google.html" >
+        <div style="position: relative; overflow: hidden; border-radius: 0.8rem 0.8rem 0 0;">
+            <img class="full-width" style="display: block;" src=" assets/google_mockup.png" />
+        </div>
         <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
             <h3>Google Calendar</h3>
             <div style="height: 1rem"></div>
@@ -182,18 +244,21 @@
         </div>
         <div class="responsive spacer"></div>
         <div class="responsive">
-    <a class="project_card desktop-45pct" href="leumi.html">
-        <img class="full-width" style="border-radius: 0.8rem 0.8rem 0 0;" src=" assets/leumi_mockup.png" />
+    <a class="project_card desktop-45pct" href="paz.html" >
+        <div style="position: relative; overflow: hidden; border-radius: 0.8rem 0.8rem 0 0;">
+            <img class="full-width" style="display: block;" src=" assets/paz_charge_mockup.png" />
+        </div>
         <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
-            <h3>Bank Leumi</h3>
+            <h3>Paz Charge</h3>
             <div style="height: 1rem"></div>
     <div class="tag_group">
         <div class="tag_item">UX Design</div>
+        <div class="tag_item">UX audit</div>
         <div class="tag_item">UI Design</div>
         <div class="tag_item">Prototyping</div>
     </div>
             <div style="height: 1rem"></div>
-            <div class="p">Mini-site for Bank Leumi enabling branch search and direct WhatsApp contact with managers.</div>
+            <div class="p">A redesign based on UX audit, site architecture and brand aligned UI design.</div>
             <div style="height: 1rem"></div>
             <div class="flex-row" style="margin-top: auto">
                 <div class="p link">View Project</div>
@@ -202,8 +267,10 @@
         </div>
     </a>
             <div class="responsive spacer"></div>
-    <a class="project_card desktop-45pct" href="mix.html">
-        <img class="full-width" style="border-radius: 0.8rem 0.8rem 0 0;" src=" assets/mix_mockup.png" />
+    <a class="project_card desktop-45pct" href="mix.html" >
+        <div style="position: relative; overflow: hidden; border-radius: 0.8rem 0.8rem 0 0;">
+            <img class="full-width" style="display: block;" src=" assets/mix_mockup.png" />
+        </div>
         <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
             <h3>Mix &amp; Drinx</h3>
             <div style="height: 1rem"></div>
@@ -234,7 +301,7 @@
             <div style="height: 1rem"></div>
             <a class="p" href="google.html">Google Calendar</a>
             <div style="height: 1rem"></div>
-            <a class="p" href="leumi.html">Bank Leumi</a>
+            <a class="p" href="xplanner.html">Xplanner</a>
             <div style="height: 1rem"></div>
             <a class="p" href="mix.html">Mix & Drinx</a>
             <div style="height: 1rem"></div>
@@ -261,6 +328,59 @@
             </div>
         </div>
     </div>
+    <script>
+        window.addEventListener('load', function () {
+            function setupGifPause(img) {
+                if (!img.naturalWidth) return;
+                var src = img.src;
+                var canvas = document.createElement('canvas');
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
+                canvas.className = img.className;
+                var inlineStyle = img.getAttribute('style') || '';
+                canvas.setAttribute('style', inlineStyle);
+                canvas.style.display = 'block';
+                canvas.style.cursor = 'pointer';
+                try {
+                    canvas.getContext('2d').drawImage(img, 0, 0);
+                } catch (e) { return; }
+                var wrapper = document.createElement('div');
+                wrapper.style.cssText = 'position: relative; display: inline-block;';
+                var inlineW = img.style.width;
+                if (inlineW) { wrapper.style.width = inlineW; canvas.style.width = '100%'; }
+                var play = document.createElement('div');
+                play.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 2.8rem; height: 2.8rem; background: rgba(0,0,0,0.45); border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; transition: opacity 0.15s;';
+                play.innerHTML = '<svg width="11" height="13" viewBox="0 0 11 13" fill="white"><polygon points="0,0 11,6.5 0,13"/></svg>';
+                img.style.display = 'none';
+                img.src = '';
+                img.parentNode.insertBefore(wrapper, img);
+                wrapper.appendChild(canvas);
+                wrapper.appendChild(play);
+                wrapper.appendChild(img);
+                wrapper.addEventListener('mouseenter', function () {
+                    play.style.opacity = '0';
+                    img.src = src;
+                    img.style.display = 'block';
+                    img.style.width = '100%';
+                    canvas.style.display = 'none';
+                });
+                wrapper.addEventListener('mouseleave', function () {
+                    play.style.opacity = '1';
+                    canvas.style.display = 'block';
+                    img.style.display = 'none';
+                    img.src = '';
+                });
+            }
+            var toProcess = [];
+            document.querySelectorAll('.responsive-rows img[src$=".gif"]').forEach(function (img) {
+                if (img.parentNode.querySelectorAll('img[src$=".gif"]').length >= 2) toProcess.push(img);
+            });
+            document.querySelectorAll('.pair-grid-container img[src$=".gif"]').forEach(function (img) {
+                toProcess.push(img);
+            });
+            toProcess.forEach(setupGifPause);
+        });
+    </script>
     <script>
         function copyEmailFooter() {
             navigator.clipboard.writeText('racheli.tokash@gmail.com');

@@ -1,0 +1,750 @@
+<!doctype html>
+<html>
+<head>
+    <title>RacheliT - Xplanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="desktop900.css">
+    <link rel="stylesheet" href="desktop1440.css">
+</head>
+<body>
+    <style>
+        .header-collapse-indicator {
+            display: block;
+        }
+        .collapsed .header-collapse-indicator {
+            display: none;
+        }
+        .header-expand-indicator {
+            display: none;
+        }
+        .collapsed .header-expand-indicator {
+            display: block;
+        }
+        .header-link-highlight {
+            color: var(--color-link) !important;
+            font-weight: 600 !important;
+        }
+        #name-separator.separator-blink {
+            animation: separator-blink 1s steps(1, end) 3;
+        }
+        @keyframes separator-blink {
+            0%,
+            50% {
+                opacity: 1;
+            }
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <div class="section-dark collapsed responsive desktop-header-padding" style="justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 12px; justify-content: space-between;" class="header-title">
+            <a id="name-title" class="p bold" href="index.html">
+                <span id="name-span"></span>
+                <span id="name-separator" style="color: var(--color-logo-purple);"> | </span>
+                <span id="name-t-span"></span>
+            </a>
+            <img class="header-collapse-indicator hide-on-desktop" style="width: 2rem; height: 2rem;" src="assets/icon_close_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+            <img class="header-expand-indicator hide-on-desktop" style="width: 2rem; height: 2rem;" src="assets/icon_open_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+        </div>
+        <div class="hide-on-mobile nav-links" style="padding: 1rem;">
+            <div class="flex-center-row">
+                <a id="link_xplanner_dt" class="p label" href="xplanner.html">Xplanner</a>
+                <div class="hspace-large"></div>
+                <a id="link_google_dt" class="p label" href="google.html">Google Calendar</a>
+                <div class="hspace-large"></div>
+                <a id="link_paz_dt" class="p label" href="paz.html">Paz Charge</a>
+                <div class="hspace-large"></div>
+                <a id="link_mix_dt" class="p label" href="mix.html">Mix & Drinx</a>
+                <div class="hspace-large"></div>
+                <a id="link_about_dt" class="p label" href="about.html">About Me</a>
+            </div>
+        </div>
+        <div class="collapse-content hide-on-desktop">
+            <div class="collapse-content-inner nav-links" style="padding-left: 2rem;">
+                <a id="link_xplanner_mb" class="p label" href="xplanner.html">Xplanner</a>
+                <div class="vspace-small"></div>
+                <a id="link_google_mb" class="p label" href="google.html">Google Calendar</a>
+                <div class="vspace-small"></div>
+                <a id="link_paz_mb" class="p label" href="paz.html">Paz Charge</a>
+                <div class="vspace-small"></div>
+                <a id="link_mix_mb" class="p label" href="mix.html">Mix & Drinx</a>
+                <div class="vspace-small"></div>
+                <a id="link_about_mb" class="p label" href="about.html">About Me</a>
+                <div class="vspace-small"></div>
+            </div>
+        </div>
+    </div>
+    <hr class="menu-line"></hr>
+    <button class="scroll-up hidden" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <img src="assets/icon_up.png" class="full-width animate-neon-blink">
+        <script>
+            window.onscroll = function () {
+                const btn = document.querySelector('.scroll-up');
+                if (window.scrollY > 300) {
+                    btn.classList.remove('hidden');
+                } else {
+                    btn.classList.add('hidden');
+                }
+            };
+        </script>
+    </button>
+    <div class="fullscreen-overlay" onclick="closeFullscreen()">
+        <img id="fullscreen-img" src=""></img>
+    </div>
+    <script>
+        function openFullscreen(img) {
+            document.getElementById('fullscreen-img').src = img.src;
+            document.querySelector('.fullscreen-overlay').classList.add('active');
+        }
+        function closeFullscreen() {
+            document.querySelector('.fullscreen-overlay').classList.remove('active');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeFullscreen();
+        });
+    </script>
+    <script>
+        const link_paz_dt = document.getElementById("link_paz_dt")
+        link_paz_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
+        const link_google_dt = document.getElementById("link_google_dt")
+        link_google_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
+        const link_xplanner_dt = document.getElementById("link_xplanner_dt")
+        link_xplanner_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("xplanner.html"))
+        const link_mix_dt = document.getElementById("link_mix_dt")
+        link_mix_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
+        const link_about_dt = document.getElementById("link_about_dt")
+        link_about_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("about.html"))
+        const link_paz_mb = document.getElementById("link_paz_mb")
+        link_paz_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
+        const link_google_mb = document.getElementById("link_google_mb")
+        link_google_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
+        const link_xplanner_mb = document.getElementById("link_xplanner_mb")
+        link_xplanner_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("xplanner.html"))
+        const link_mix_mb = document.getElementById("link_mix_mb")
+        link_mix_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
+        const link_about_mb = document.getElementById("link_about_mb")
+        link_about_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("about.html"))
+    </script>
+    <script>
+        const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+        const text = "Racheli";
+        const targetName = document.getElementById("name-span");
+        const targetT = document.getElementById("name-t-span");
+        const targetSeparator = document.getElementById("name-separator");
+        let index = 0;
+        function typeWriter() {
+            if (index == text.length) {
+                targetT.textContent = "T";
+                targetSeparator.classList.add("separator-blink");
+                return;
+            }
+            targetName.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, randomInt(40, 90));
+        }
+        typeWriter();
+    </script>
+    <div class="section-padding section-dark responsive" style="align-items: center;">
+        <div class="desktop-45pct">
+            <div class="p label bold">Scientific Workflow System</div>
+            <h1>Xplanner</h1>
+            <div class="vspace-xsmall"></div>
+            <div class="vspace-small"></div>
+            <div class="p">Led UX design and research for an <strong style="font-weight: 600;">early-stage platform</strong>, shaping the core experience from concept to initial product direction.</div>
+            <div class="vspace-medium"></div>
+        </div>
+        <div class="desktop-5pct"></div>
+        <div class="desktop-50pct">
+            <img src="assets/img_xplanner_intro_mob.png" class="hide-on-desktop full-width rounded-image" />
+            <img src="assets/img_xplanner_intro_desk.png" class="hide-on-mobile full-width rounded-image" />
+        </div>
+        <div>
+            <div class="vspace-small"></div>
+            <div style="display: flex; flex-wrap: wrap;">
+                <div class="intro-item">
+                    <div class="p label bold">
+                        Role
+                    </div>
+                    <div class="p">UX Strategy &amp; UI</div>
+                    <div class="p">Information Architecture</div>
+                    <div class="p">Branding</div>
+                </div>
+                <div class="intro-item">
+                    <div class="p label bold">
+                        Tools
+                    </div>
+                    <div class="p">Figma</div>
+                    <div class="p">Illustrator</div>
+                </div>
+            </div>
+            <div class="vspace-small"></div>
+            <h2>Goal</h2>
+            <div class="vspace-xsmall"></div>
+            <div class="p desktop-text-padding">Define and validate a new approach for managing lab experiments through a visual, <strong style="font-weight: 600;">structured workflow that supports both planning and real-time execution.</strong></div>
+        </div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>The Challenges</h2>
+        <div class="vspace-xsmall"></div>
+        <h3>Business Challenges</h3>
+        <div class="vspace-small"></div>
+        <div class="responsive">
+            <div style="display: flex; flex-direction: column;" class="desktop-30pct">
+                <img src="assets/icon_xplanner_unified.svg" style="width: 4rem; height: 4rem;">
+                <div class="vspace-xsmall"></div>
+                <div>
+                    <div class="p label bold">Unified platform</div>
+                    <div class="p">Create one system for experiment planning, execution, and documentation.</div>
+                </div>
+            </div>
+            <div class="vspace-medium desktop-5pct"></div>
+            <div style="display: flex; flex-direction: column;" class="desktop-30pct">
+                <img src="assets/icon_xplanner_flexibility.svg" style="width: 4rem; height: 4rem;">
+                <div class="vspace-xsmall"></div>
+                <div>
+                    <div class="p label bold">Real flexibility</div>
+                    <div class="p">Support diverse research workflows where each experiment is different and protocols constantly evolve.</div>
+                </div>
+            </div>
+            <div class="vspace-medium desktop-5pct"></div>
+            <div style="display: flex; flex-direction: column;" class="desktop-30pct">
+                <img src="assets/icon_xplanner_effortless.svg" style="width: 4rem; height: 4rem;">
+                <div class="vspace-xsmall"></div>
+                <div>
+                    <div class="p label bold">Effortless adoption</div>
+                    <div class="p">Enable researchers to adopt the tool without adding work to their overloaded schedule.</div>
+                </div>
+            </div>
+        </div>
+        <div class="vspace-large"></div>
+        <h3>Design Challenges</h3>
+        <div class="vspace-small"></div>
+        <div class="responsive">
+            <div style="display: flex; flex-direction: column;" class="desktop-30pct">
+                <img src="assets/icon_xplanner_familiar.svg" style="width: 4rem; height: 4rem;">
+                <div class="vspace-xsmall"></div>
+                <div>
+                    <div class="p label bold">Unfamiliar domain</div>
+                    <div class="p">Design for a complex scientific environment where a single experiment spans hours with parallel processes.</div>
+                </div>
+            </div>
+            <div class="vspace-medium desktop-5pct"></div>
+            <div style="display: flex; flex-direction: column;" class="desktop-30pct">
+                <img src="assets/icon_xplanner_conditions.svg" style="width: 4rem; height: 4rem;">
+                <div class="vspace-xsmall"></div>
+                <div>
+                    <div class="p label bold">Lab conditions</div>
+                    <div class="p">Account for gloves, distance from screen, and high cognitive load during experiments.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .ca-entry {
+            border: 1px solid var(--color-label);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .ca-checklist {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+        .ca-checklist-item {
+            background-color: var(--color-tag-fill);
+            border-radius: 2rem;
+            padding: 0.15rem 0.85rem 0.25rem 0.6rem;
+            border: 1px solid var(--color-label);
+            margin: 4px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .ca-check-yes {
+            color: var(--color-checklist-green);
+        }
+        .ca-check-no {
+            color: var(--color-checklist-red);
+        }
+        .ca-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.7rem;
+        }
+        @media (min-width: 900px) {
+            .ca-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+    <div class="section-padding section-alt-color">
+        <h2>Competitive Analysis</h2>
+        <div class="vspace-xsmall"></div>
+        <div class="p">Before designing the experience, I looked at existing lab tools to understand the patterns researchers already expect.</div>
+        <div class="vspace-medium"></div>
+        <div style="display: flex; align-items: center; flex-wrap: wrap;">
+            <div class="p bold" style="font-size: 1.375rem;">Simple pen &amp; Paper</div>
+            <div class="vspace-medium"></div>
+            <div class="hspace-small"></div>
+            <img src="assets/img_xplanner_logo_ca_1.png" style="height: 44px"></img>
+            <div class="vspace-medium"></div>
+            <div class="hspace-small"></div>
+            <img src="assets/img_xplanner_logo_ca_2.png" style="height: 44px"></img>
+            <div class="vspace-medium"></div>
+            <div class="hspace-small"></div>
+            <img src="assets/img_xplanner_logo_ca_3.png" style="height: 44px"></img>
+        </div>
+        <div class="vspace-medium"></div>
+        <div class="ca-grid">
+            <div class="ca-entry">
+                <h3>Text-based protocols</h3>
+                <div class="p">Experiments are primarily documented as written text rather than visual workflows.</div>
+                <div class="vspace-small"></div>
+                <div class="ca-checklist">
+                    <div
+                        class="p bold ca-checklist-item ca-check-yes">
+                        <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
+                        Common
+                    </div>
+                </div>
+            </div>
+            <div class="ca-entry">
+                <h3>Documentation and records</h3>
+                <div class="p">Designed to capture protocols, observations, and experiment history.</div>
+                <div class="vspace-small"></div>
+                <div class="ca-checklist">
+                    <div
+                        class="p bold ca-checklist-item ca-check-yes">
+                        <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
+                        Common
+                    </div>
+                </div>
+            </div>
+            <div class="ca-entry">
+                <h3>Linear structure</h3>
+                <div class="p">Experiments are organized as sequential steps, read from top to bottom.</div>
+                <div class="vspace-small"></div>
+                <div class="ca-checklist">
+                    <div
+                        class="p bold ca-checklist-item ca-check-yes">
+                        <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
+                        Common
+                    </div>
+                </div>
+            </div>
+            <div class="ca-entry">
+                <h3>Manual input</h3>
+                <div class="p">Researchers are expected to write and maintain information themselves.</div>
+                <div class="vspace-small"></div>
+                <div class="ca-checklist">
+                    <div
+                        class="p bold ca-checklist-item ca-check-yes">
+                        <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
+                        Common
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .research-personas {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        @media (min-width: 900px) {
+            .research-personas {
+                flex-direction: row;
+            }
+            .research-persona {
+                flex: 1;
+            }
+        }
+        .research-persona {
+            border: 1px solid var(--color-label);
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .research-quote-box {
+            border-radius: 0.5rem;
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.25rem;
+        }
+        .research-insight-number {
+            font-family: poppins;
+            font-weight: 300;
+            font-size: 3.125rem;
+            line-height: 1;
+            color: var(--color-checklist-green);
+        }
+    </style>
+    <div class="section-padding section-alt-color">
+        <h2>User Research</h2>
+        <div class="vspace-xsmall"></div>
+        <div class="p">We conducted in-depth interviews with lab managers, doctoral researchers, and research assistants across different lab types, spanning biomechanics, biology, and chemistry.</div>
+        <div class="vspace-medium"></div>
+        <div class="research-personas">
+            <div class="research-persona">
+                <h3>Prof. Mirit</h3>
+                <div class="p label">
+                    Lab Manager<br>Mechanical Engineering
+                </div>
+    <div class="tag_group">
+        <div class="tag_item">Documentation gaps</div>
+        <div class="tag_item">Overloaded</div>
+        <div class="tag_item">Extra work</div>
+    </div>
+                <div class="p" style="white-space: pre-line;">Runs an Agile lab,
+but <strong style="font-weight: 600;">documentation still slips.</strong> &#34;If a tool doesn&#39;t help from day one, there&#39;s no time for it.&#34;</div>
+            </div>
+            <div class="research-persona">
+                <h3>Hani</h3>
+                <div class="p label">
+                    Research Assistant<br>Biomechanics Lab
+                </div>
+    <div class="tag_group">
+        <div class="tag_item">Scattered records</div>
+        <div class="tag_item">Memory based</div>
+        <div class="tag_item">Not repeatable</div>
+    </div>
+                <div class="p" style="white-space: pre-line;"><strong style="font-weight: 600;">Protocols live in a Word file and a notebook, but most work done from memory</strong>, so documentation gaps only surface when someone else has to repeat it.</div>
+            </div>
+            <div class="research-persona">
+                <h3>Hadar &amp; Ortal</h3>
+                <div class="p label">
+                    Industry Researchers
+                </div>
+    <div class="tag_group">
+        <div class="tag_item">Rigid tools</div>
+        <div class="tag_item">Text-heavy</div>
+        <div class="tag_item">No overview</div>
+    </div>
+                <div class="p" style="white-space: pre-line;"><strong style="font-weight: 600;">Years on Benchling and LabGuru, both rigid and text-heavy</strong>, with no way to see an experiment as a whole, visually.</div>
+            </div>
+        </div>
+        <div class="vspace-medium"></div>
+        <div class="research-quote-box section-dark">
+            <div class="p bold" style="color: var(--color-checklist-green);">User quote</div>
+            <div class="p" style="font-family: poppins; font-weight: 200; white-space: pre-line;">&#34;We need to see the experiment as a visual flow,
+not scroll through endless text. One look and you know exactly where you are.&#34;</div>
+            <div class="p label">Hadar, Industry Researcher</div>
+        </div>
+        <div class="vspace-medium"></div>
+        <h3>Key Insights</h3>
+        <div class="vspace-small"></div>
+        <div class="responsive">
+            <div class="desktop-30pct">
+                <div class="research-insight-number">01</div>
+                <div class="p label bold">One workspace</div>
+                <div class="p"><strong style="font-weight: 600;">Researchers switch between 3&#43; tools per experiment.</strong> There is no single source of truth for protocols, labware, and results.</div>
+            </div>
+            <div class="vspace-medium desktop-5pct"></div>
+            <div class="desktop-30pct">
+                <div class="research-insight-number">02</div>
+                <div class="p label bold">A visual workflow</div>
+                <div class="p"><strong style="font-weight: 600;">Scientists think about experiments as visual</strong>, schematic processes, not as text documents.</div>
+            </div>
+            <div class="vspace-medium desktop-5pct"></div>
+            <div class="desktop-30pct">
+                <div class="research-insight-number">03</div>
+                <div class="p label bold">No extra work</div>
+                <div class="p">Researchers <strong style="font-weight: 600;">won&#39;t adopt any tool that adds work</strong> to their already overloaded schedule.</div>
+            </div>
+        </div>
+    </div>
+    <div class="section-padding section-alt-color">
+        <h2>Design</h2>
+        <div class="vspace-medium"></div>
+    <style>
+        .layout-image-img { max-width: 45%; }
+        @media (min-width: 900px) { .layout-image-img { max-width: none; } }
+        .layout-image-inner { gap: 1rem; }
+        .full-width-mobile { max-width: 100% !important; width: 100% !important; }
+        .cl-para-gap { height: 1.5rem; }
+        @media (min-width: 900px) { .cl-para-gap { height: 0.5rem; } }
+        @media (max-width: 899px) { .cl-gap-title { height: 5rem; } }
+        @media (max-width: 899px) { .cl-gap-item { height: 5rem; } }
+    </style>
+    <div>
+        <h3>Building the experiment as a visual flow</h3>
+        <div class="vspace-xsmall"></div>
+        <div class="p">Researchers described experiments as processes, not documents.</div>
+        <div class="cl-para-gap"></div><div class="p">To support that, I designed the setup as a visual workflow, <strong style="font-weight: 600;">connecting materials, equipment, and actions in context instead of text.</strong></div>
+        <div class="vspace-small"></div>
+        <img src="assets/xplanner_gif1_addstep1.gif" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+    </div>
+    <div class="vspace-small cl-gap-item"></div>
+    <div class="responsive" style="justify-content: space-between;">
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Closer look: One continuous flow</div>
+            <div class="p"><strong style="font-weight: 600;">An experiment is defined by the relationships between materials, equipment, and actions.</strong></div>
+            <div class="cl-para-gap"></div><div class="p">I kept them in one visual flow, allowing the protocol to be understood through context instead of text.</div>
+        </div>
+        <div class="hspace-large"></div>
+        <div class="full-width desktop-45pct layout-image layout-image-inner" style="display: flex;">
+            <img src="assets/img_xplanner_design_continuous_flow.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+        </div>
+    </div>
+    <div class="vspace-large cl-gap-title cl-extra-xlarge"></div>
+    <div>
+        <h3>Running the experiment in the same flow</h3>
+        <div class="vspace-xsmall"></div>
+        <div class="p"><strong style="font-weight: 600;">During a live experiment, attention is split and hands are busy.</strong></div>
+        <div class="cl-para-gap"></div><div class="p"><strong style="font-weight: 600;">To reduce that load, I kept execution inside the same flow researchers already built</strong>, keeping the current step and progress always visible so nothing has to be re-learned mid-task.</div>
+        <div class="vspace-small cl-extra-medium"></div>
+        <img src="assets/xplanner_gif2_view2.gif" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+    </div>
+    <div class="vspace-small cl-gap-item cl-extra-medium"></div>
+    <div>
+        <div class="p label bold">Closer look: Stay oriented</div>
+        <div class="p">Experiments are rarely completed in one uninterrupted session.</div>
+        <div class="cl-para-gap"></div><div class="p">To make returning easier, <strong style="font-weight: 600;">I kept the current step and overall progress visible, so researchers do not have to retrace the protocol</strong> after looking away.</div>
+        <div class="vspace-small"></div>
+        <img src="assets/img_xplanner_design_stepper.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+    </div>
+    <div class="vspace-large cl-gap-title cl-extra-xlarge"></div>
+    <div>
+        <h3>Editing without leaving the flow</h3>
+        <div class="vspace-xsmall"></div>
+        <div class="p"><strong style="font-weight: 600;">Protocols rarely stay fixed once work begins.</strong></div>
+        <div class="cl-para-gap"></div><div class="p">To support those small adjustments, I kept <strong style="font-weight: 600;">editing inside the same workspace instead of moving researchers to a separate screen</strong>, so the experiment never disappears from view.</div>
+        <div class="vspace-small"></div>
+        <img src="assets/xplanner_gif3_edit3.gif" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+    </div>
+    <div class="vspace-small cl-gap-item cl-extra-medium"></div>
+    <div class="responsive" style="justify-content: space-between;">
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Closer look: Adding or editing notes</div>
+            <div class="p">Not every detail belongs inside a workflow step. I created a space for <strong style="font-weight: 600;">experiment-wide notes, allowing researchers to keep assumptions and reminders with the protocol.</strong></div>
+        </div>
+        <div class="hspace-large"></div>
+        <div class="full-width desktop-45pct layout-image layout-image-inner" style="display: flex;">
+            <img src="assets/img_xplanner_design_notes_instructions.png" style="width: 80%;" class="rounded-image thumbnail layout-image-img full-width-mobile"
+                onclick="openFullscreen(this)">
+        </div>
+    </div>
+    <div class="vspace-small cl-gap-item cl-extra-medium"></div>
+    <div class="responsive" style="justify-content: space-between;">
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p label bold">Closer look: Notes while running</div>
+            <div class="p">Experiments rarely unfold exactly as planned. I allowed researchers to attach notes to the current step, so <strong style="font-weight: 600;">observations become part of the protocol while the work is still happening.</strong></div>
+        </div>
+        <div class="hspace-large"></div>
+        <div class="full-width desktop-45pct layout-image layout-image-inner" style="display: flex;">
+            <img src="assets/img_xplanner_design_notes_step.png" style="width: 80%;" class="rounded-image thumbnail layout-image-img full-width-mobile"
+                onclick="openFullscreen(this)">
+        </div>
+    </div>
+    </div>
+    <style>
+        .improvement-image {
+            width: 100%;
+        }
+        @media (min-width: 900px) {
+            .improvement-image {
+                width: 85%;
+            }
+        }
+        @media (min-width: 1440px) {
+            .improvement-image {
+                width: 70%;
+            }
+        }
+    </style>
+    <div class="section-padding section-alt-color">
+        <h2>Conclusions</h2>
+        <div class="vspace-xsmall"></div>
+        <div class="p" style="white-space: pre-line;">This project challenged me to design beyond individual screens and think about an entire scientific workflow. Three ideas shaped the direction of the product:</div>
+        <div class="vspace-medium"></div>
+        <ol class="p responsive"
+            style="display:flex; flex-wrap:wrap; gap:2rem; margin:0; padding-left: 1.4em; list-style-position:outside;">
+            <li class="desktop-30pct">
+                <span style="white-space: pre-line;"> Planning, execution, and documentation work best as one connected experience.</span>
+            </li>
+            <li class="desktop-30pct">
+                <span style="white-space: pre-line;"> Designing around existing research habits can be more valuable than creating new ones.</span>
+            </li>
+            <li class="desktop-30pct">
+                <span style="white-space: pre-line;"> Experiments rarely go exactly as planned, and the workflow should be able to evolve with them.</span>
+            </li>
+        </ol>
+        <div class="vspace-medium"></div>
+        <div class="p label bold">Looking ahead</div>
+        <div class="p" style="white-space: pre-line;"><strong style="font-weight: 600;">I would validate this workflow with researchers</strong> by following a complete experiment from planning to execution.</div>
+        <div class="vspace-small"></div><div class="p" style="white-space: pre-line;">I would also explore how <strong style="font-weight: 600;">voice capture</strong> could support real-time documentation without adding complexity across editing and execution.</div>
+    </div>
+    <div class="section-padding section-color">
+        <h2>More Projects</h2>
+        <div class="vspace-small"></div>
+        <div class="responsive">
+    <a class="project_card desktop-45pct" href="paz.html" >
+        <div style="position: relative; overflow: hidden; border-radius: 0.8rem 0.8rem 0 0;">
+            <img class="full-width" style="display: block;" src=" assets/paz_charge_mockup.png" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
+            <h3>Paz Charge</h3>
+            <div style="height: 1rem"></div>
+    <div class="tag_group">
+        <div class="tag_item">UX Design</div>
+        <div class="tag_item">UX audit</div>
+        <div class="tag_item">UI Design</div>
+        <div class="tag_item">Prototyping</div>
+    </div>
+            <div style="height: 1rem"></div>
+            <div class="p">A redesign based on UX audit, site architecture and brand aligned UI design.</div>
+            <div style="height: 1rem"></div>
+            <div class="flex-row" style="margin-top: auto">
+                <div class="p link">View Project</div>
+                <img src="assets/a_arrow.svg" style="width: 2rem; height: 2rem; margin-left: 8px" />
+            </div>
+        </div>
+    </a>
+            <div class="responsive spacer"></div>
+    <a class="project_card desktop-45pct" href="mix.html" >
+        <div style="position: relative; overflow: hidden; border-radius: 0.8rem 0.8rem 0 0;">
+            <img class="full-width" style="display: block;" src=" assets/mix_mockup.png" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
+            <h3>Mix &amp; Drinx</h3>
+            <div style="height: 1rem"></div>
+    <div class="tag_group">
+        <div class="tag_item">UX Research</div>
+        <div class="tag_item">UX Design</div>
+        <div class="tag_item">UI Design</div>
+        <div class="tag_item">Branding</div>
+        <div class="tag_item">Micro-copy</div>
+        <div class="tag_item">Prototyping</div>
+    </div>
+            <div style="height: 1rem"></div>
+            <div class="p">Mix &amp; Drinx is a user-centered cocktail app designed for people who love to experiment with flavors.</div>
+            <div style="height: 1rem"></div>
+            <div class="flex-row" style="margin-top: auto">
+                <div class="p link">View Project</div>
+                <img src="assets/a_arrow.svg" style="width: 2rem; height: 2rem; margin-left: 8px" />
+            </div>
+        </div>
+    </a>
+        </div>
+    </div>
+    <style>
+        @media (min-width: 900px) { .cl-para-gap { height: 0 !important; } }
+        @media (min-width: 900px) { .cl-extra-xlarge { height: 10rem !important; } }
+        @media (min-width: 900px) { .cl-extra-medium { height: 4rem !important; } }
+    </style>
+    <div class="section-padding section-dark responsive">
+        <div class="desktop-45pct">
+            <a class="p bold" href="index.html">Projects</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="paz.html">Paz Charge</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="google.html">Google Calendar</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="xplanner.html">Xplanner</a>
+            <div style="height: 1rem"></div>
+            <a class="p" href="mix.html">Mix & Drinx</a>
+            <div style="height: 1rem"></div>
+        </div>
+        <div class="responsive spacer"></div>
+        <div class="desktop-45pct">
+            <a class="p bold" href="about.html">About Me</a>
+            <div style="height: 2rem"></div>
+            <div>
+                <div class="p bold">Reach Out - I don't bite</div>
+                <div class="flex-row">
+                    <a class="p link" href="mailto:racheli.tokash@gmail.com">racheli.tokash@gmail.com</a>
+                    <div class="hspace-xsmall"></div>
+                    <img src="assets/icon_copy_mail.svg" class="copy-icon" alt="Copy email" onclick="copyEmailFooter()"></img>
+                    <span id="copy-status-footer" class="icon-copy" hidden="">Copied!</span>
+                    <div class="hspace-xsmall"></div>
+                </div>
+                <div class="flex-row">
+                    <a class="p link" href="assets/Rachel_Dortman_CV.pdf" target="_blank" rel="noopener">My CV</a>
+                    <div class="hspace-xsmall"></div>
+                    <img src="assets/icon_open_cv.svg" alt="Open CV"></img>
+                    <div class="hspace-xsmall"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function () {
+            function setupGifPause(img) {
+                if (!img.naturalWidth) return;
+                var src = img.src;
+                var canvas = document.createElement('canvas');
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
+                canvas.className = img.className;
+                var inlineStyle = img.getAttribute('style') || '';
+                canvas.setAttribute('style', inlineStyle);
+                canvas.style.display = 'block';
+                canvas.style.cursor = 'pointer';
+                try {
+                    canvas.getContext('2d').drawImage(img, 0, 0);
+                } catch (e) { return; }
+                var wrapper = document.createElement('div');
+                wrapper.style.cssText = 'position: relative; display: inline-block;';
+                var inlineW = img.style.width;
+                if (inlineW) { wrapper.style.width = inlineW; canvas.style.width = '100%'; }
+                var play = document.createElement('div');
+                play.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 2.8rem; height: 2.8rem; background: rgba(0,0,0,0.45); border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; transition: opacity 0.15s;';
+                play.innerHTML = '<svg width="11" height="13" viewBox="0 0 11 13" fill="white"><polygon points="0,0 11,6.5 0,13"/></svg>';
+                img.style.display = 'none';
+                img.src = '';
+                img.parentNode.insertBefore(wrapper, img);
+                wrapper.appendChild(canvas);
+                wrapper.appendChild(play);
+                wrapper.appendChild(img);
+                wrapper.addEventListener('mouseenter', function () {
+                    play.style.opacity = '0';
+                    img.src = src;
+                    img.style.display = 'block';
+                    img.style.width = '100%';
+                    canvas.style.display = 'none';
+                });
+                wrapper.addEventListener('mouseleave', function () {
+                    play.style.opacity = '1';
+                    canvas.style.display = 'block';
+                    img.style.display = 'none';
+                    img.src = '';
+                });
+            }
+            var toProcess = [];
+            document.querySelectorAll('.responsive-rows img[src$=".gif"]').forEach(function (img) {
+                if (img.parentNode.querySelectorAll('img[src$=".gif"]').length >= 2) toProcess.push(img);
+            });
+            document.querySelectorAll('.pair-grid-container img[src$=".gif"]').forEach(function (img) {
+                toProcess.push(img);
+            });
+            toProcess.forEach(setupGifPause);
+        });
+    </script>
+    <script>
+        function copyEmailFooter() {
+            navigator.clipboard.writeText('racheli.tokash@gmail.com');
+            var el = document.getElementById('copy-status-footer');
+            el.hidden = false;
+            setTimeout(function () { el.hidden = true; }, 1200);
+        }
+    </script>
+</body>
+</html>

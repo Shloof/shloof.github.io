@@ -4,27 +4,60 @@
     <title>RacheliT - Google Calendar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="desktop.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="desktop900.css">
+    <link rel="stylesheet" href="desktop1440.css">
 </head>
 <body>
+    <style>
+        .header-collapse-indicator {
+            display: block;
+        }
+        .collapsed .header-collapse-indicator {
+            display: none;
+        }
+        .header-expand-indicator {
+            display: none;
+        }
+        .collapsed .header-expand-indicator {
+            display: block;
+        }
+        .header-link-highlight {
+            color: var(--color-link) !important;
+            font-weight: 600 !important;
+        }
+        #name-separator.separator-blink {
+            animation: separator-blink 1s steps(1, end) 3;
+        }
+        @keyframes separator-blink {
+            0%,
+            50% {
+                opacity: 1;
+            }
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
     <div class="section-dark collapsed responsive desktop-header-padding" style="justify-content: space-between;">
         <div style="display: flex; align-items: center; gap: 12px; justify-content: space-between;" class="header-title">
             <a id="name-title" class="p bold" href="index.html">
                 <span id="name-span"></span>
-                <span id="name-seperator" style="color: var(--color-logo-purple);"> | </span>
+                <span id="name-separator" style="color: var(--color-logo-purple);"> | </span>
                 <span id="name-t-span"></span>
             </a>
             <img class="header-collapse-indicator hide-on-desktop" style="width: 2rem; height: 2rem;" src="assets/icon_close_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
-            <img class="header-expand-indicator" style="width: 2rem; height: 2rem;" src="assets/icon_open_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
+            <img class="header-expand-indicator hide-on-desktop" style="width: 2rem; height: 2rem;" src="assets/icon_open_menu.svg" onclick="this.parentNode.parentNode.classList.toggle('collapsed')"></img>
         </div>
-        <div class="hide-on-mobile" style="padding: 1rem;">
+        <div class="hide-on-mobile nav-links" style="padding: 1rem;">
             <div class="flex-center-row">
-                <a id="link_paz_dt" class="p label" href="paz.html">Paz Charge</a>
+                <a id="link_xplanner_dt" class="p label" href="xplanner.html">Xplanner</a>
                 <div class="hspace-large"></div>
                 <a id="link_google_dt" class="p label" href="google.html">Google Calendar</a>
                 <div class="hspace-large"></div>
-                <a id="link_leumi_dt" class="p label" href="leumi.html">Leumi</a>
+                <a id="link_paz_dt" class="p label" href="paz.html">Paz Charge</a>
                 <div class="hspace-large"></div>
                 <a id="link_mix_dt" class="p label" href="mix.html">Mix & Drinx</a>
                 <div class="hspace-large"></div>
@@ -32,12 +65,12 @@
             </div>
         </div>
         <div class="collapse-content hide-on-desktop">
-            <div class="collapse-content-inner" style="padding-left: 2rem;">
-                <a id="link_paz_mb" class="p label" href="paz.html">Paz Charge</a>
+            <div class="collapse-content-inner nav-links" style="padding-left: 2rem;">
+                <a id="link_xplanner_mb" class="p label" href="xplanner.html">Xplanner</a>
                 <div class="vspace-small"></div>
                 <a id="link_google_mb" class="p label" href="google.html">Google Calendar</a>
                 <div class="vspace-small"></div>
-                <a id="link_leumi_mb" class="p label" href="leumi.html">Leumi</a>
+                <a id="link_paz_mb" class="p label" href="paz.html">Paz Charge</a>
                 <div class="vspace-small"></div>
                 <a id="link_mix_mb" class="p label" href="mix.html">Mix & Drinx</a>
                 <div class="vspace-small"></div>
@@ -80,8 +113,8 @@
         link_paz_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
         const link_google_dt = document.getElementById("link_google_dt")
         link_google_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
-        const link_leumi_dt = document.getElementById("link_leumi_dt")
-        link_leumi_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_xplanner_dt = document.getElementById("link_xplanner_dt")
+        link_xplanner_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("xplanner.html"))
         const link_mix_dt = document.getElementById("link_mix_dt")
         link_mix_dt.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
         const link_about_dt = document.getElementById("link_about_dt")
@@ -90,8 +123,8 @@
         link_paz_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("paz.html"))
         const link_google_mb = document.getElementById("link_google_mb")
         link_google_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("google.html"))
-        const link_leumi_mb = document.getElementById("link_leumi_mb")
-        link_leumi_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("leumi.html"))
+        const link_xplanner_mb = document.getElementById("link_xplanner_mb")
+        link_xplanner_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("xplanner.html"))
         const link_mix_mb = document.getElementById("link_mix_mb")
         link_mix_mb.classList.toggle("header-link-highlight", window.location.pathname.includes("mix.html"))
         const link_about_mb = document.getElementById("link_about_mb")
@@ -102,12 +135,12 @@
         const text = "Racheli";
         const targetName = document.getElementById("name-span");
         const targetT = document.getElementById("name-t-span");
-        const targetSeperator = document.getElementById("name-seperator");
+        const targetSeparator = document.getElementById("name-separator");
         let index = 0;
         function typeWriter() {
             if (index == text.length) {
                 targetT.textContent = "T";
-                targetSeperator.classList.add("seperator-blink");
+                targetSeparator.classList.add("separator-blink");
                 return;
             }
             targetName.textContent += text.charAt(index);
@@ -118,10 +151,12 @@
     </script>
     <div class="section-padding section-dark responsive" style="align-items: center;">
         <div class="desktop-45pct">
-            <div class="p label bold">UX transformation</div>
+            <div class="p label bold">UX Transformation</div>
             <h1>Google Calendar</h1>
             <div class="vspace-xsmall"></div>
-            <div class="p">Google Calendar is powerful but often feels impersonal. This project explores how to make it more personal, warm, and user-friendly without losing its core functionality.</div>
+            <div class="p">Google Calendar is a powerful productivity tool, but the experience often feels rigid and impersonal.</div>
+            <div class="vspace-small"></div>
+            <div class="p">In this project, we explored ways to <strong style="font-weight: 600;">make it more personal, flexible, and approachable without compromising its core functionality.</strong></div>
             <div class="vspace-medium"></div>
         </div>
         <div class="desktop-5pct"></div>
@@ -131,72 +166,108 @@
         </div>
         <div>
             <div class="vspace-small"></div>
-            <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+            <div style="display: flex; flex-wrap: wrap;">
                 <div class="intro-item">
                     <div class="p label bold">
                         Role
                     </div>
-                    <div class="p">UX &amp; Research</div>
+                    <div class="p">UX Research &amp; Interaction Design</div>
                 </div>
                 <div class="intro-item">
                     <div class="p label bold">
-                        UX Course
+                        Collaboration
                     </div>
-                    <div class="p">Codesigner</div>
-                </div>
-                <div class="intro-item">
-                    <div class="p label bold">
-                        Tools
-                    </div>
-                    <div class="p">Figma</div>
+                    <div class="p">Yael Barak — Shared research and interaction design</div>
                 </div>
             </div>
             <div class="vspace-small"></div>
             <h2>Goal</h2>
             <div class="vspace-xsmall"></div>
-            <div class="p desktop-text-padding">Create a more personal and accessible Google Calendar experience through visual customization and simplified editing.</div>
+            <div class="p desktop-text-padding">Reimagine Google Calendar as a more personal and intuitive experience through customization and simplified event editing.</div>
         </div>
     </div>
     <div class="section-padding section-alt-color">
         <h2>The Challenges</h2>
         <div class="vspace-xsmall"></div>
-        <div class="p" style="white-space: pre-line;">Google Calendar, while powerful, presents several key challenges in both functionality and user experience.</div>
+        <div class="p" style="white-space: pre-line;">Google Calendar is a powerful utility, but it lacks the tactile emotional connection that draws users to paper planners.</div>
         <div class="vspace-medium"></div>
         <div class="responsive">
-            <div style="display: flex; flex-direction: row; align-items: top;" class="desktop-30pct">
-                <img src="assets/icon_challenges_cold.svg" style="width: 4rem; height: 4rem;">
-                <div class="hspace-medium"></div>
+            <div style="display: flex; flex-direction: column;" class="desktop-30pct">
+                <img src="assets/icon_challenges_google_emotional.svg" style="width: 4rem; height: 4rem;">
+                <div class="vspace-xsmall"></div>
                 <div>
-                    <div class="p label">Cold and technical interface</div>
-                    <div class="p">The design lacks warmth and personality.</div>
+                    <div class="p label bold">Emotional Gap</div>
+                    <div class="p">Introducing visual personalization without creating clutter that compromises information hierarchy.</div>
                 </div>
             </div>
             <div class="vspace-medium desktop-5pct"></div>
-            <div style="display: flex; flex-direction: row; align-items: top;" class="desktop-30pct">
-                <img src="assets/icon_challenges_hidden.svg" style="width: 4rem; height: 4rem;">
-                <div class="hspace-medium"></div>
+            <div style="display: flex; flex-direction: column;" class="desktop-30pct">
+                <img src="assets/icon_challenges_google_friction.svg" style="width: 4rem; height: 4rem;">
+                <div class="vspace-xsmall"></div>
                 <div>
-                    <div class="p label">Hidden functionality</div>
-                    <div class="p">Useful features exist but are buried or hard to discover</div>
+                    <div class="p label bold">Interaction Friction</div>
+                    <div class="p">Streamlining the fragmented editing flow to enable seamless updates without breaking user focus.</div>
                 </div>
             </div>
             <div class="vspace-medium desktop-5pct"></div>
-            <div style="display: flex; flex-direction: row; align-items: top;" class="desktop-30pct">
-                <img src="assets/icon_challenges_time.svg" style="width: 4rem; height: 4rem;">
-                <div class="hspace-medium"></div>
+            <div style="display: flex; flex-direction: column;" class="desktop-30pct">
+                <img src="assets/icon_challenges_google_system.svg" style="width: 4rem; height: 4rem;">
+                <div class="vspace-xsmall"></div>
                 <div>
-                    <div class="p label">Too much time spent</div>
-                    <div class="p">Simple tasks require too many clicks</div>
+                    <div class="p label bold">System Consistency</div>
+                    <div class="p">Integrating new features while staying aligned with Google’s Material Design language and existing user mental models.</div>
                 </div>
             </div>
         </div>
     </div>
+    <style>
+        .ca-entry {
+            border: 1px solid var(--color-label);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .ca-checklist {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+        .ca-checklist-item {
+            background-color: var(--color-tag-fill);
+            border-radius: 2rem;
+            padding: 0.15rem 0.85rem 0.25rem 0.6rem;
+            border: 1px solid var(--color-label);
+            margin: 4px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .ca-check-yes {
+            color: var(--color-checklist-green);
+        }
+        .ca-check-no {
+            color: var(--color-checklist-red);
+        }
+        .ca-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.7rem;
+        }
+        @media (min-width: 900px) {
+            .ca-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
     <div class="section-padding section-alt-color">
         <h2>Competitive Analysis</h2>
         <div class="vspace-xsmall"></div>
-        <div class="p">A quick comparison of design and UX patterns found in leading calendar tools.</div>
+        <div class="p">We mapped design and UX patterns across leading calendar tools to identify gaps and opportunities.</div>
         <div class="vspace-medium"></div>
-        <div style="display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; flex-wrap: wrap;">
             <img src="assets/img_google_logo_ca_1.png"></img>
             <div class="vspace-medium"></div>
             <div class="hspace-small"></div>
@@ -212,8 +283,8 @@
             <img src="assets/img_google_logo_ca_5.png"></img>
         </div>
         <div class="vspace-medium"></div>
-        <div class="flex-row" style="flex-wrap: wrap;gap: 0.7rem;">
-            <div class="ca-entry desktop-25pct">
+        <div class="ca-grid">
+            <div class="ca-entry">
                 <h3>Custom calendar colors</h3>
                 <div class="p">Users can choose colors for their calendar view.</div>
                 <div class="vspace-small"></div>
@@ -221,7 +292,7 @@
                     <div
                         class="p bold ca-checklist-item ca-check-yes">
                         <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
-                        Competitors
+                        Common
                     </div>
                     <div
                         class="p bold ca-checklist-item ca-check-no">
@@ -230,7 +301,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ca-entry desktop-25pct">
+            <div class="ca-entry">
                 <h3>Clean white layout</h3>
                 <div class="p">White background with a subtle gray grid.</div>
                 <div class="vspace-small"></div>
@@ -238,16 +309,16 @@
                     <div
                         class="p bold ca-checklist-item ca-check-yes">
                         <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
-                        Competitors
+                        Common
                     </div>
                     <div
-                        class="p bold ca-checklist-item ca-check-no">
-                        <img src="assets/icon_google_ca_no_check.svg" style="height: 2rem"></img>
+                        class="p bold ca-checklist-item ca-check-yes">
+                        <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
                         Google Calendar
                     </div>
                 </div>
             </div>
-            <div class="ca-entry desktop-25pct">
+            <div class="ca-entry">
                 <h3>Icons or visuals</h3>
                 <div class="p">Visual elements are rarely supported.</div>
                 <div class="vspace-small"></div>
@@ -255,7 +326,7 @@
                     <div
                         class="p bold ca-checklist-item ca-check-no">
                         <img src="assets/icon_google_ca_no_check.svg" style="height: 2rem"></img>
-                        Competitors
+                        Rare
                     </div>
                     <div
                         class="p bold ca-checklist-item ca-check-yes">
@@ -264,7 +335,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ca-entry desktop-25pct">
+            <div class="ca-entry">
                 <h3>Fixed Left Menu</h3>
                 <div class="p">Events appear in both the calendar and menu.</div>
                 <div class="vspace-small"></div>
@@ -272,7 +343,7 @@
                     <div
                         class="p bold ca-checklist-item ca-check-yes">
                         <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
-                        Competitors
+                        Common
                     </div>
                     <div
                         class="p bold ca-checklist-item ca-check-no">
@@ -281,7 +352,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ca-entry desktop-25pct">
+            <div class="ca-entry">
                 <h3>Quick event entry</h3>
                 <div class="p">Add events directly by tapping the calendar.</div>
                 <div class="vspace-small"></div>
@@ -289,7 +360,7 @@
                     <div
                         class="p bold ca-checklist-item ca-check-yes">
                         <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
-                        Competitors
+                        Common
                     </div>
                     <div
                         class="p bold ca-checklist-item ca-check-no">
@@ -298,7 +369,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ca-entry desktop-25pct">
+            <div class="ca-entry">
                 <h3>Reschedule with others</h3>
                 <div class="p">Easily find a new time for shared events.</div>
                 <div class="vspace-small"></div>
@@ -306,7 +377,7 @@
                     <div
                         class="p bold ca-checklist-item ca-check-yes">
                         <img src="assets/icon_google_ca_check.svg" style="height: 2rem"></img>
-                        Competitors
+                        Common
                     </div>
                     <div
                         class="p bold ca-checklist-item ca-check-no">
@@ -322,59 +393,54 @@
         <div class="vspace-xsmall"></div>
         <div class="responsive" style="align-items: center;justify-content: space-between;">
             <div class="desktop-45pct">
-                <div class="p" style="white-space: pre-line;">In the early 2000s, calendars went digital with tools like Outlook and Google. Over the past decade, paper planning made a comeback with #planneraddict reached nearly 5M mentions on Instagram.</div>
+                <div class="p" style="white-space: pre-line;">While calendars became increasingly digital, paper planners continued to grow in popularity, with communities like <strong style="font-weight: 600;">#planneraddict gaining millions of posts on Instagram.</strong></div>
+                <div class="vspace-small"></div><div class="p">This reflected a desire for more personal and expressive planning experiences.</div>
             </div>
             <div class="vspace-medium"></div>
             <div class="desktop-5pct"></div>
-            <div class="desktop-40pct">
+            <div class="desktop-35pct">
                 <img src="assets/img_google_timeline_ca.png" class="full-width">
             </div>
         </div>
         <div class="vspace-medium"></div>
-        <div class="p">To understand this shift, we listed the advantages of both formats.</div>
+        <div class="p">To better understand this shift, we mapped the strengths of both formats.</div>
         <div class="vspace-small"></div>
         <div>
-            <img src="assets/img_google_timeline_table_ca.png%5c" class=" hide-on-desktop full-width"></img>
+            <img src="assets/img_google_timeline_table_ca.png" class=" hide-on-desktop full-width"></img>
             <img src="assets/img_google_timeline_table_ca_desk.png" class="hide-on-mobile full-width"></img>
         </div>
         <div class="vspace-small"></div>
-        <div class="p" style="white-space: pre-line;">Paper remains appealing because handwriting is fast, personal, and memorable, helping us form stronger visual and mental connections.</div>
+        <div class="p" style="font-weight: 600;">Paper remains appealing because handwriting feels personal and memorable, supporting stronger memory retention and emotional connection.</div>
         <div class="vspace-medium"></div>
-        <hr style="width: 100%">
+        <hr>
         </hr>
         <div class="vspace-medium"></div>
         <div class="p label">Survey</div>
-        <div class="p" style="white-space: pre-line;">To better understand this, we surveyed users about their calendar habits and the motivations behind them.</div>
+        <div class="p" style="white-space: pre-line;">To better understand users&#39; planning habits and motivations, we conducted a survey on how people use digital calendars in their daily lives.</div>
         <div class="vspace-medium"></div>
         <div class="responsive" style="justify-content: space-between;">
             <div class="desktop-30pct">
-                <div style="display: flex; flex-direction: row; align-items: baseline;">
+                <div style="display: flex; align-items: baseline;">
                     <div style="font-size: 4rem; font-family: poppins;">65</div>
                     <div class="p">%</div>
                 </div>
-                <div class="p" style="white-space: pre-line;">Use it to manage 
-their agenda
-</div>
+                <div class="p" style="white-space: pre-line;">Use it to manage their daily schedule</div>
             </div>
             <div class="vspace-medium"></div>
             <div class="desktop-30pct">
-                <div style="display: flex; flex-direction: row; align-items: baseline;">
+                <div style="display: flex; align-items: baseline;">
                     <div style="font-size: 4rem; font-family: poppins;">73</div>
                     <div class="p">%</div>
                 </div>
-                <div class="p" style="white-space: pre-line;">Use the calendar as a
-daily planner
-</div>
+                <div class="p" style="white-space: pre-line;">Use their calendar as a daily planning tool</div>
             </div>
             <div class="vspace-medium"></div>
             <div class="desktop-30pct">
-                <div style="display: flex; flex-direction: row; align-items: baseline;">
+                <div style="display: flex; align-items: baseline;">
                     <div style="font-size: 4rem; font-family: poppins;">52</div>
                     <div class="p">%</div>
                 </div>
-                <div class="p" style="white-space: pre-line;">Use it for their
-personal needs
-</div>
+                <div class="p" style="white-space: pre-line;">Use it to manage personal activities</div>
             </div>
         </div>
     </div>
@@ -423,7 +489,7 @@ personal needs
         <div class="box-text-1">
             <div class="vspace-small"></div>
             <div class="p label bold">Current</div>
-            <div class="p">Today, all events look the same and customization is limited to color choice. To better match user preferences, we defined several enhancements</div>
+            <div class="p">Event visibility is currently limited, with most events appearing visually similar and customization <strong style="font-weight: 600;">restricted to color selection.</strong></div>
             <div class="vspace-medium"></div>
         </div>
         <div class="box-image-2">
@@ -433,11 +499,12 @@ personal needs
         <div class="box-text-2">
             <div class="vspace-small"></div>
             <div class="p label bold">Suggested</div>
+            <div class="p">To improve visibility and personalization, we introduced several enhancements:</div>
             <ol class="p">
-                <li>Resize title for better orientation</li>
-                <li>Add background image to events</li>
-                <li>Add link/attachment icon</li>
-                <li>Add icon to indicate event type</li>
+                <li>Larger titles for faster scanning</li>
+                <li>Background images for distinction</li>
+                <li>Quick access to links and attachments</li>
+                <li>Custom icons for different event types</li>
             </ol> 
         </div>
     </div>
@@ -485,7 +552,7 @@ personal needs
         <div class="box-text-1">
             <div class="vspace-small"></div>
             <div class="p label bold">Current</div>
-            <div class="p">A single click on an event opens a side panel with its details. To edit, the user must click the edit button, which redirects to advanced editing in a new window.</div>
+            <div class="p">Clicking an event opens the Quick Event Editing Panel, but <strong style="font-weight: 600;">editing still requires opening a separate window, interrupting the user&#39;s flow.</strong></div>
             <div class="vspace-medium"></div>
         </div>
         <div class="box-image-2">
@@ -495,7 +562,7 @@ personal needs
         <div class="box-text-2">
             <div class="vspace-small"></div>
             <div class="p label bold">Suggested</div>
-            <div class="p">To simplify use, the event panel will allow direct editing of details, which will update instantly on the board.</div> 
+            <div class="p">To streamline editing, we turned the Quick Event Editing Panel into a <strong style="font-weight: 600;">directly editable workspace</strong>, allowing users to <strong style="font-weight: 600;">make changes instantly without leaving the calendar view.</strong></div>
         </div>
     </div>
         <div class="vspace-large"></div>
@@ -553,115 +620,203 @@ personal needs
         <div class="box-text-2">
             <div class="vspace-small"></div>
             <div class="p label bold">Suggested</div>
-            <div class="p">Double-clicking an event opens advanced editing in a side panel, keeping the calendar visible and adding options for an icon and image.</div> 
+            <div class="p">To keep the calendar visible while editing, we moved advanced editing into a side panel.</div>
         </div>
     </div>
         <div class="vspace-large"></div>
         <img src="assets/advanced_editing.gif" class="full-width thumbnail rounded-image" onclick="openFullscreen(this);">
         <div class="vspace-large"></div>
-    <div class="responsive alt-row" style="justify-content: space-between;">
-        <h3 class="hide-on-desktop">Customized event</h3>
-        <div id="foo2" class="vspace-small hide-on-desktop"></div>
-        <div class="full-width desktop-45pct"
-            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
-            <img src="assets/google_custom_solutions_c.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+    <style>
+        .pair-grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        .box-image-1 {
+            order: 1;
+            display: flex;
+        }
+        .box-text-1 {
+            order: 2;
+        }
+        .box-image-2 {
+            order: 3;
+            display: flex;
+        }
+        .box-text-2 {
+            order: 4;
+        }
+        @media (min-width: 1440px) {
+            .pair-grid-container {
+                grid-template-columns: 1fr 1fr;
+                column-gap: 8rem;
+            }
+            .box-text-1 {
+                order: 3;
+            }
+            .box-image-2 {
+                order: 2;
+            }
+        }
+    </style>
+    <h3>Customized event</h3>
+    <div class="vspace-small"></div>
+    <div class="pair-grid-container">
+        <div class="box-image-1">
+            <img src="assets/google_custom_solutions_c.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)"
+                style="align-self: end;">
         </div>
-        <div class="vspace-small desktop-5pct"></div>
-        <div class="desktop-45pct">
-            <div style="height: 33%;"></div>
-            <h3 class="hide-on-mobile">Customized event</h3>
-            <div class="hide-on-mobile vspace-small"></div>
+        <div class="box-text-1">
+            <div class="vspace-small"></div>
             <div class="p label bold">Current</div>
-             <div class="p">Nowadays when you right-click on an event a &#34;Drop Down&#34; opens with a number of basic editing options.</div> 
+            <div class="p">Right clicking an event opens a dropdown with limited editing and customization options.</div>
+            <div class="vspace-medium"></div>
         </div>
-    </div>
-    <div id="space001" class="vspace-medium"></div>
-    <div></div>
-    <div class="responsive alt-row" style="justify-content: space-between;">
-        <div class="full-width desktop-45pct"
-            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
-            <img src="assets/google_custom_solutions_s.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+        <div class="box-image-2">
+            <img src="assets/google_custom_solutions_s.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)"
+                style="align-self: end;">
         </div>
-        <div class="vspace-small desktop-5pct"></div>
-        <div class="desktop-45pct">
-            <div style="height: 33%;"></div>
+        <div class="box-text-2">
+            <div class="vspace-small"></div>
             <div class="p label bold">Suggested</div>
             <ol class="p">
-                <li>We expanded the editing options to give users easier access, focusing on adding a link.</li><li>When clicking the link option, a popover opens, allowing the user to search or paste a site address.</li>
-                </ol> 
-        </div>
-    </div>
-    <div id="space001" class="vspace-medium"></div>
-    <div></div>
-    <div class="responsive alt-row" style="justify-content: space-between;">
-        <h3 class="hide-on-desktop">Customized calendar</h3>
-        <div id="foo2" class="vspace-small hide-on-desktop"></div>
-        <div class="full-width desktop-45pct"
-            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
-            <img src="assets/google_custom_calendar_solutions.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
-        </div>
-        <div class="vspace-small desktop-5pct"></div>
-        <div class="desktop-45pct">
-            <div style="height: 33%;"></div>
-            <h3 class="hide-on-mobile">Customized calendar</h3>
-            <div class="hide-on-mobile vspace-small"></div>
-            <div class="p label bold">Theme Selection</div>
-             <div class="p">The user chooses from preset themes with background, colors, and font, then customizes it as desired.</div> 
-        </div>
-    </div>
-    <div id="space001" class="vspace-medium"></div>
-    <div></div>
-    <div class="responsive alt-row" style="justify-content: space-between;">
-        <div class="full-width desktop-45pct"
-            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
-            <img src="assets/google_custom_calendar_solutions_2.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
-        </div>
-        <div class="vspace-small desktop-5pct"></div>
-        <div class="desktop-45pct">
-            <div style="height: 33%;"></div>
-             <div class="p">The user can choose from preset themes, each with a background image, matching colors, and a font. After selecting a theme, the user can further customize and adjust it as desired.</div> 
-        </div>
-    </div>
-    <div id="space001" class="vspace-medium"></div>
-    <div></div>
-    <div class="responsive alt-row" style="justify-content: space-between;">
-        <div class="full-width desktop-45pct"
-            style="display: flex; flex-direction: row; gap: 1rem;justify-content: center;">
-            <img src="assets/google_custom_calendar_solutions_3.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
-        </div>
-        <div class="vspace-small desktop-5pct"></div>
-        <div class="desktop-45pct">
-            <div style="height: 33%;"></div>
-             <div class="p">The main problem is the clutter created by the multiplicity of colors and shapes from the background image along with the variety of event colors on the board.</div> 
+                <li>To improve customization, we <strong style="font-weight: 600;">expanded the dropdown menu with options</strong> for adding links and attachments.</li>
+                <li>To keep the interaction lightweight, selecting the link option opens a popover for <strong style="font-weight: 600;">quickly adding or pasting a URL.</strong></li>
+            </ol> 
         </div>
     </div>
         <div class="vspace-large"></div>
-        <div class="p label bold">Final version</div>
+    <style>
+        .layout-image-img { max-width: 45%; }
+        @media (min-width: 900px) { .layout-image-img { max-width: none; } }
+        .layout-image-inner { gap: 1rem; }
+        .full-width-mobile { max-width: 100% !important; width: 100% !important; }
+        .cl-para-gap { height: 1.5rem; }
+        @media (min-width: 900px) { .cl-para-gap { height: 0.5rem; } }
+        @media (max-width: 899px) { .cl-gap-title { height: 5rem; } }
+        @media (max-width: 899px) { .cl-gap-item { height: 5rem; } }
+    </style>
+    <div>
+        <h3>Customized calendar</h3>
         <div class="vspace-xsmall"></div>
-        <div class="p" style="white-space: pre-line;">To retain a personal touch, we chose a minimalist approach: custom colors, font changes, stickers, and event images.</div>
+        <div class="p label bold">First Iteration</div>
+        <div class="p">Insights from the survey and research led us to introduce a customization layer, <strong style="font-weight: 600;">giving users more ownership over their calendar experience through visual themes and stickers.</strong></div>
+        <div class="vspace-small"></div>
+        <img src="assets/google_custom_calendar_solutions.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+    </div>
+    <div class="vspace-small cl-gap-item"></div>
+    <div class="responsive" style="justify-content: space-between;">
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p">We designed a set of preset themes combining background images, color palettes, and typography. <strong style="font-weight: 600;">Users can select a theme and further customize it to match their preferences.</strong></div>
+        </div>
+        <div class="hspace-large"></div>
+        <div class="full-width desktop-45pct layout-image layout-image-inner" style="display: flex;">
+            <img src="assets/google_custom_calendar_solutions_2.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+        </div>
+    </div>
+    <div class="vspace-small cl-gap-item"></div>
+    <div class="responsive" style="justify-content: space-between;">
+        <div class="desktop-45pct">
+            <div style="height: 33%;"></div>
+            <div class="p">After testing several background approaches, <strong style="font-weight: 600;">we found that combining background images with colorful events created too much visual noise.</strong> To maintain clarity, we moved toward a more focused and balanced solution.</div>
+        </div>
+        <div class="hspace-large"></div>
+        <div class="full-width desktop-45pct layout-image layout-image-inner" style="display: flex;">
+            <img src="assets/google_custom_calendar_solutions_3.png" class="full-width rounded-image thumbnail" onclick="openFullscreen(this)">
+        </div>
+    </div>
+        <div class="vspace-large"></div>
+        <div class="p label bold">Final Design</div>
+        <div class="vspace-xsmall"></div>
+        <div class="p" style="white-space: pre-line;">Since full background themes created too much visual noise, <strong style="font-weight: 600;">we shifted to a lighter approach</strong>, allowing users to customize colors, typography, stickers, and event images <strong style="font-weight: 600;">without overwhelming the interface.</strong></div>
         <div class="vspace-small"></div>
         <img src="assets/themes_stickers_anim.gif" class="full-width thumbnail rounded-image" onclick="openFullscreen(this);">
     </div>
+    <style>
+        .improvement-image {
+            width: 100%;
+        }
+        @media (min-width: 900px) {
+            .improvement-image {
+                width: 85%;
+            }
+        }
+        @media (min-width: 1440px) {
+            .improvement-image {
+                width: 70%;
+            }
+        }
+    </style>
     <div class="section-padding section-alt-color">
         <h2>Conclusions</h2>
         <div class="vspace-xsmall"></div>
-        <div class="p" style="white-space: pre-line;">Throughout this project, we faced several challenges that deepened our understanding of how users interact with Google Calendar and how design decisions affect usability and personalization.</div>
+        <div class="p" style="white-space: pre-line;"><strong style="font-weight: 600;">This project pushed us to think carefully about the balance between usability, personalization, and visual clarity.</strong> Working through these challenges deepened our understanding of how people actually interact with digital calendars.</div>
         <div class="vspace-medium"></div>
         <ol class="p responsive"
-            style="display:flex; flex-wrap:wrap; gap:2rem; margin:0; padding: left 1.4em; list-style-position:outside;">
+            style="display:flex; flex-wrap:wrap; gap:2rem; margin:0; padding-left: 1.4em; list-style-position:outside;">
             <li class="desktop-30pct">
-                <span style="white-space: pre-line;padding-left: 0.2  rem;"> Balancing minimalism and personalization required careful design choices.</span>
+                <span style="white-space: pre-line;"> Balancing personalization with visual clarity requires careful restraint.</span>
             </li>
             <li class="desktop-30pct">
-                <span style="white-space: pre-line;padding-left: 0.2  rem;"> Deciding what to edit on the board versus side panels raised hierarchy and efficiency questions.</span>
+                <span style="white-space: pre-line;"> Editing directly within the calendar view improves workflow continuity.</span>
             </li>
             <li class="desktop-30pct">
-                <span style="white-space: pre-line;padding-left: 0.2  rem;"> Adapting patterns from other Google products showed not all solutions fit Calendar.</span>
+                <span style="white-space: pre-line;"> Familiar design patterns do not always fit Google Calendar workflow.</span>
             </li>
         </ol>
         <div class="vspace-medium"></div>
-        <div class="p label bold">Results</div>
-        <div class="p" style="white-space: pre-line;">We would also explore adding tasks as checkboxes within the calendar, examining whether this approach could enhance usability or create visual clutter.</div>
+        <div class="p label bold">Looking ahead</div>
+        <div class="p" style="white-space: pre-line;">Given more time, we would explore <strong style="font-weight: 600;">integrating tasks directly into the calendar view.</strong> Google Tasks and Google Calendar currently feel disconnected, and combining them could create a more unified daily planning experience.</div>
+    </div>
+    <div class="section-padding section-color">
+        <h2>More Projects</h2>
+        <div class="vspace-small"></div>
+        <div class="responsive">
+    <a class="project_card desktop-45pct" href="paz.html" >
+        <div style="position: relative; overflow: hidden; border-radius: 0.8rem 0.8rem 0 0;">
+            <img class="full-width" style="display: block;" src=" assets/paz_charge_mockup.png" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
+            <h3>Paz Charge</h3>
+            <div style="height: 1rem"></div>
+    <div class="tag_group">
+        <div class="tag_item">UX Design</div>
+        <div class="tag_item">UX audit</div>
+        <div class="tag_item">UI Design</div>
+        <div class="tag_item">Prototyping</div>
+    </div>
+            <div style="height: 1rem"></div>
+            <div class="p">A redesign based on UX audit, site architecture and brand aligned UI design.</div>
+            <div style="height: 1rem"></div>
+            <div class="flex-row" style="margin-top: auto">
+                <div class="p link">View Project</div>
+                <img src="assets/a_arrow.svg" style="width: 2rem; height: 2rem; margin-left: 8px" />
+            </div>
+        </div>
+    </a>
+            <div class="responsive spacer"></div>
+    <a class="project_card desktop-45pct" href="xplanner.html" >
+        <div style="position: relative; overflow: hidden; border-radius: 0.8rem 0.8rem 0 0;">
+            <img class="full-width" style="display: block;" src=" assets/xplanner_mockup.png" />
+        </div>
+        <div style="padding: 2rem; display: flex; flex-direction: column; flex: 1">
+            <h3>Xplanner</h3>
+            <div style="height: 1rem"></div>
+    <div class="tag_group">
+        <div class="tag_item">UX Strategy &amp; UI</div>
+        <div class="tag_item">Information Architecture</div>
+        <div class="tag_item">Branding</div>
+    </div>
+            <div style="height: 1rem"></div>
+            <div class="p">UX research and design for an early-stage scientific platform, covering strategy, information architecture, and branding.</div>
+            <div style="height: 1rem"></div>
+            <div class="flex-row" style="margin-top: auto">
+                <div class="p link">View Project</div>
+                <img src="assets/a_arrow.svg" style="width: 2rem; height: 2rem; margin-left: 8px" />
+            </div>
+        </div>
+    </a>
+        </div>
     </div>
     <div class="section-padding section-dark responsive">
         <div class="desktop-45pct">
@@ -671,7 +826,7 @@ personal needs
             <div style="height: 1rem"></div>
             <a class="p" href="google.html">Google Calendar</a>
             <div style="height: 1rem"></div>
-            <a class="p" href="leumi.html">Bank Leumi</a>
+            <a class="p" href="xplanner.html">Xplanner</a>
             <div style="height: 1rem"></div>
             <a class="p" href="mix.html">Mix & Drinx</a>
             <div style="height: 1rem"></div>
@@ -698,6 +853,59 @@ personal needs
             </div>
         </div>
     </div>
+    <script>
+        window.addEventListener('load', function () {
+            function setupGifPause(img) {
+                if (!img.naturalWidth) return;
+                var src = img.src;
+                var canvas = document.createElement('canvas');
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
+                canvas.className = img.className;
+                var inlineStyle = img.getAttribute('style') || '';
+                canvas.setAttribute('style', inlineStyle);
+                canvas.style.display = 'block';
+                canvas.style.cursor = 'pointer';
+                try {
+                    canvas.getContext('2d').drawImage(img, 0, 0);
+                } catch (e) { return; }
+                var wrapper = document.createElement('div');
+                wrapper.style.cssText = 'position: relative; display: inline-block;';
+                var inlineW = img.style.width;
+                if (inlineW) { wrapper.style.width = inlineW; canvas.style.width = '100%'; }
+                var play = document.createElement('div');
+                play.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 2.8rem; height: 2.8rem; background: rgba(0,0,0,0.45); border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; transition: opacity 0.15s;';
+                play.innerHTML = '<svg width="11" height="13" viewBox="0 0 11 13" fill="white"><polygon points="0,0 11,6.5 0,13"/></svg>';
+                img.style.display = 'none';
+                img.src = '';
+                img.parentNode.insertBefore(wrapper, img);
+                wrapper.appendChild(canvas);
+                wrapper.appendChild(play);
+                wrapper.appendChild(img);
+                wrapper.addEventListener('mouseenter', function () {
+                    play.style.opacity = '0';
+                    img.src = src;
+                    img.style.display = 'block';
+                    img.style.width = '100%';
+                    canvas.style.display = 'none';
+                });
+                wrapper.addEventListener('mouseleave', function () {
+                    play.style.opacity = '1';
+                    canvas.style.display = 'block';
+                    img.style.display = 'none';
+                    img.src = '';
+                });
+            }
+            var toProcess = [];
+            document.querySelectorAll('.responsive-rows img[src$=".gif"]').forEach(function (img) {
+                if (img.parentNode.querySelectorAll('img[src$=".gif"]').length >= 2) toProcess.push(img);
+            });
+            document.querySelectorAll('.pair-grid-container img[src$=".gif"]').forEach(function (img) {
+                toProcess.push(img);
+            });
+            toProcess.forEach(setupGifPause);
+        });
+    </script>
     <script>
         function copyEmailFooter() {
             navigator.clipboard.writeText('racheli.tokash@gmail.com');
