@@ -342,8 +342,8 @@
         <h2>User Flow</h2>
         <div class="vspace-small"></div>
         <div>
-            <img class="full-width hide-on-desktop" src="assets/mix_user_flow_mob.svg"></img>
-            <img class="full-width hide-on-mobile" src="assets/mix_user_flow_desk.svg"></img>
+            <img class="full-width hide-on-desktop thumbnail" src="assets/mix_user_flow_mob.svg" onclick="openFullscreen(this)"></img>
+            <img class="full-width hide-on-mobile thumbnail" src="assets/mix_user_flow_desk.svg" onclick="openFullscreen(this)"></img>
         </div>
         <div class="vspace-xsmall"></div>
     </div>
@@ -680,6 +680,14 @@
     </a>
         </div>
     </div>
+    <style>
+        @media (max-width: 899px) {
+            .layout-image-inner img:only-child {
+                max-width: 65% !important;
+                width: 65% !important;
+            }
+        }
+    </style>
     <div class="section-padding section-dark responsive">
         <div class="desktop-45pct">
             <a class="p bold" href="index.html">Projects</a>
